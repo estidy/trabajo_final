@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
+<head th:replace="layout/indexLayout::head"></head>
+<body>
+<header th:replace="layout/indexLayout::headerIndex"></header>
+	<a th:href="@{/}">Volver</a>
+	<h1> DATOS DEL USUARIO</h1>
+	<form th:action="@{/saveUser}" method="POST" th:object="${user}">
+		<input type="hidden" name="id" th:field="*{id}"/>
+		<br/>
+		<label for="username">Nombre de Usuario:</label>
+		<input type="text" name="username" th:field="*{username}"/>
+		<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"> Error Nombre</span>
+		<br/>
+		<label for="email">Email:</label>
+		<input type="text" name="email" th:field="*{email}"/>
+		<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> Error Email</span>
+		<br/>
+		<label for="password">Password:</label>
+		<input type="text" name="password" th:field="*{password}"/>
+		<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> Error Password</span>
+		<br/>
+		<label for="phone">Phone:</label>
+		<input type="tel" name="phone" th:field="*{phone}"/>
+		<br/>
+		<input type=submit name="Guardar"  value="Guardar"/>
+	</form>
+<footer th:replace="layout/indexLayout::footerIndex"></footer>
+</body>
+</html>
