@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.cervelBuenTrato.core.model.User;
-import com.cervelBuenTrato.core.services.RepositoryService;
+import com.cervelBuenTrato.core.services.UserRepositoryService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ControllerIndex {
 	@Autowired
-	private RepositoryService userService;
+	private UserRepositoryService userService;
 
 	@GetMapping("/")
 	public String index(Model model) {

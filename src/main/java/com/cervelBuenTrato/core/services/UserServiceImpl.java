@@ -12,7 +12,7 @@ import com.cervelBuenTrato.core.dao.UserRepository;
 import com.cervelBuenTrato.core.model.User;
 
 @Service
-public class UserServiceImpl implements RepositoryService {
+public class UserServiceImpl implements UserRepositoryService {
 
 	@Autowired
 	private UserRepository userRepository;

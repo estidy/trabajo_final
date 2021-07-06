@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import com.cervelBuenTrato.core.model.User;
 
-public interface RepositoryService {
+public interface UserRepositoryService {
 
 	public Iterable<User> findAll();
 
