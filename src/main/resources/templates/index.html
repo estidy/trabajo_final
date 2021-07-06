@@ -4,31 +4,7 @@
 <body>
 <header th:replace="layout/indexLayout::headerIndex"></header>
 <section>
-	<h3>-*Listado de Usuarios*-</h3>
-	<a th:href="@{/addUser}">Agregar Usuario</a>
-	<div th:if="${users != null and !users.empty}">
-		<table border ="1">
-			  <tr>
-			    <th>NOMBRE</th>
-			    <th>CLAVE</th>
-			    <th>EMAIL</th> 
-			    <th>TELEFONO</th>
-			    <th>EDITAR</th>
-			    <th>ELIMINAR</th>
-			  </tr> 
-			  <tr th:each="u : ${users}">
-			    <td th:text="${u.username}"></td>
-			    <td th:text="${u.password}"></td>
-			    <td th:text="${u.email}"></td>  
-			    <td th:text="${u.phone}"></td>
-			    <td> <a th:href="@{/editUser/} + ${u.id}" th:text="Editar"> </a> </td>
-			    <td> <a th:href="@{/deleteUser(id=${u.id})}" th:text="Eliminar"> </a> </td>
-			  </tr>   
-		 </table>
-	</div>
-	<div th:if="${users == null or users.empty}">
-		<p> La Lista de usuarios esta vacia </p>
-	</div>
+   <h1> Pagina de Inicio</h1>
 </section>
 <footer th:replace="layout/indexLayout::footerIndex"></footer>
 </body>
