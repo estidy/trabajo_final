@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http//www.w3.org/1999/xhtml"
+      xmlns:th="http//www.thymeleaf.org"
+      xmlns:sec="http//www.thymeleaf.org/extras/spring-segurity">
+	<head th:fragment="headProfile">
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=|, initial-scale=1.0">
+	    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+		<title th:text="${title}"></title>
+	</head>
+	<body>
+	  	<div id="containerProfile">
+	  		<!-- BARRA DE NAVEGACION  -->
+			<header th:fragment="headerProfile"> 
+				
+			</header>
+			<!-- CONTENIDO DINAMICO  -->
+			<main id="contentProfile">
+			</main>
+		</div>
+		<!-- PIE DE PAGINA  -->
+		<footer th:fragment="footerProfile">
+			<p>[[#{layoutIndex.textoFooterIndex}]] <a href="www.infoApp.com"></a> @InfoApp- 2021 </p>
+			<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+		</footer>
+	</body>
+</html>

@@ -8,5 +8,11 @@ import javax.persistence.Entity;
 public class InProcess extends State {
 
 	private static final long serialVersionUID = 1L;
+	private static final String TYPE = "INPROCESS";
+
+	@Override
+	public String getType() {
+		return TYPE;
+	}
 
 }

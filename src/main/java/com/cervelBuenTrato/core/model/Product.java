@@ -47,4 +47,6 @@ public abstract class Product implements Serializable {
 		return serialVersionUID;
 	}
 
+	public abstract String getType();
+
 }

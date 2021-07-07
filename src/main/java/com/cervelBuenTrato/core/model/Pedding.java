@@ -8,5 +8,11 @@ import javax.persistence.Entity;
 public class Pedding extends State {
 
 	private static final long serialVersionUID = 1L;
+	private static final String TYPE = "PENDDING";
+
+	@Override
+	public String getType() {
+		return TYPE;
+	}
 
 }

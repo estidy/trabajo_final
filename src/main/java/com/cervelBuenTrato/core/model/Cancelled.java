@@ -8,5 +8,11 @@ import javax.persistence.Entity;
 public class Cancelled extends State {
 
 	private static final long serialVersionUID = 1L;
+	private static final String TYPE = "CANCELLED";
+
+	@Override
+	public String getType() {
+		return TYPE;
+	}
 
 }

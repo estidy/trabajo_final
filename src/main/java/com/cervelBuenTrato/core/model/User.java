@@ -3,13 +3,14 @@ package com.cervelBuenTrato.core.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -28,6 +29,7 @@ public class User implements Serializable {
 	@NotEmpty
 	private String username;
 	@NotEmpty
+	@Column(length = 128)
 	private String password;
 	@Column(length = 50, unique = true, nullable = false)
 	@NotEmpty
@@ -35,9 +37,9 @@ public class User implements Serializable {
 	private String email;
 	private String phone;
 	private Boolean active = Boolean.TRUE;
-	@ManyToOne
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_profile")
-	private Profile profile;
+	private List<Profile> profiles;
 	@OneToMany
 	private List<Purchase> purchases;
 

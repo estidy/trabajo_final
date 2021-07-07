@@ -10,8 +10,15 @@ import javax.persistence.ManyToOne;
 public class Beer extends Product {
 
 	private static final long serialVersionUID = 1L;
+	private static final String TYPE = "BEER";
+
 	@ManyToOne
 	@JoinColumn(name = "id_type_beer")
 	private TypeBeer type_beer;
+
+	@Override
+	public String getType() {
+		return TYPE;
+	}
 
 }

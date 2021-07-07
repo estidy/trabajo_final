@@ -23,4 +23,6 @@ public abstract class State implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "id_purchase")
 	private Purchase purchase;
+
+	public abstract String getType();
 }
