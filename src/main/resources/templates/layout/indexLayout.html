@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http//www.thymeleaf.org">
+<html lang="en" 
+      xmlns="http//www.w3.org/1999/xhtml"
+      xmlns:th="http//www.thymeleaf.org">
 	<head th:fragment="headIndex">
 	    <meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +9,13 @@
 		<title th:text="${title}"></title>
 	</head>
 	<body>
-		<header th:fragment="headerIndex"> 
-			<h1 th:text="#{layoutIndex.titleHeaderIndex}">Titulo</h1>
-		</header>
+	  	<div id="containerIndex">
+			<header th:fragment="headerIndex"> 
+				<h1 th:text="#{layoutIndex.titleHeaderIndex}">Titulo</h1>
+			</header>
+			<main id="contentIndex">
+			</main>
+		</div>
 		<footer th:fragment="footerIndex">
 			<p>[[#{layoutIndex.textoFooterIndex}]] <a href="www.infoApp.com"></a> @InfoApp- 2021 </p>
 		</footer>
