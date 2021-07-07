@@ -46,7 +46,7 @@ public class UserController {
 		return "redirect:/users/abm_users";
 	}
 
-	@GetMapping("/editUser/{id}")
+	@GetMapping("/editUser/{id_user}")
 	public String editUser(User user, Model model) {
 		var title = "EditUser";
 		model.addAttribute("title", title);

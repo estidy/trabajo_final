@@ -22,7 +22,7 @@
 			    <td th:text="${u.email}"></td>  
 			    <td th:text="${u.phone}"></td>
 			    <td> <a th:href="@{/users/editUser/} + ${u.id_user}" th:text="Editar"> </a> </td>
-			    <td> <a th:href="@{/users/deleteUser(id=${u.id_user})}" th:text="Eliminar"> </a> </td>
+			    <td> <a th:href="@{/users/deleteUser(id_user=${u.id_user})}" th:text="Eliminar"> </a> </td>
 			  </tr>   
 		 </table>
 	</div>
