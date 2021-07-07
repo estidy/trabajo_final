@@ -6,18 +6,23 @@
 	    <meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=|, initial-scale=1.0">
+	    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 		<title th:text="${title}"></title>
 	</head>
 	<body>
 	  	<div id="containerIndex">
+	  		<!-- BARRA DE NAVEGACION  -->
 			<header th:fragment="headerIndex"> 
 				<h1 th:text="#{layoutIndex.titleHeaderIndex}">Titulo</h1>
 			</header>
+			<!-- CONTENIDO DINAMICO  -->
 			<main id="contentIndex">
 			</main>
 		</div>
+		<!-- PIE DE PAGINA  -->
 		<footer th:fragment="footerIndex">
 			<p>[[#{layoutIndex.textoFooterIndex}]] <a href="www.infoApp.com"></a> @InfoApp- 2021 </p>
+			<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 		</footer>
 	</body>
 </html>
