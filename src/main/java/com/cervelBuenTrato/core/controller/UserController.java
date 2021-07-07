@@ -22,7 +22,7 @@ public class UserController {
 	@Autowired
 	private UserRepositoryService userService;
 
-	@GetMapping("/amb_users")
+	@GetMapping("/abm_users")
 	public String index(Model model) {
 		var title = "ABM-Users";
 		var users = userService.findAll();
@@ -43,7 +43,7 @@ public class UserController {
 		if (errors.hasErrors())
 			return ("addUser");
 		userService.save(user);
-		return "redirect:/";
+		return "redirect:/users/abm_users";
 	}
 
 	@GetMapping("/editUser/{id}")
@@ -58,6 +58,6 @@ public class UserController {
 	@GetMapping("/deleteUser")
 	public String deleteUser(User user) {
 		userService.deleteById(user);
-		return "redirect:/";
+		return "redirect:/users/abm_users";
 	}
 }

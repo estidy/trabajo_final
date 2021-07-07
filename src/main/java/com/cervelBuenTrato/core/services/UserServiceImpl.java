@@ -23,11 +23,12 @@ public class UserServiceImpl implements UserRepositoryService {
 		return userRepository.findAll();
 	}
 
-	@Transactional(readOnly = true)
-	@Override
-	public Iterable<User> findAllWithProfile() {
-		return userRepository.findAllWithProfile();
-	}
+	/*
+	 * @Transactional(readOnly = true)
+	 * 
+	 * @Override public Iterable<User> findAllWithProfile() { return
+	 * userRepository.findAllWithProfile(); }
+	 */
 
 	@Transactional(readOnly = true)
 	@Override
