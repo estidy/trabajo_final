@@ -11,6 +11,8 @@ public interface UserRepositoryService {
 
 	public Iterable<User> findAll();
 
+	public Iterable<User> findAllWithProfile();
+
 	public Page<User> findAll(Pageable paginable);
 
 	public Optional<User> findById(User user);
