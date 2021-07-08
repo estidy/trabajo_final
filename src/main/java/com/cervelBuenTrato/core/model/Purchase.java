@@ -33,7 +33,7 @@ public class Purchase implements Serializable {
 	private DestinationAdress destination_adress;
 	@OneToOne
 	@JoinColumn(name = "id_user")
-	private User user;
+	private Usr user;
 	@OneToOne
 	@JoinColumn(name = "id_voucher")
 	private Voucher voucher;

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.cervelBuenTrato.core.model.User;
+import com.cervelBuenTrato.core.model.Usr;
 import com.cervelBuenTrato.core.services.UserRepositoryService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,14 +32,14 @@ public class UserController {
 	}
 
 	@GetMapping("/addUser")
-	public String addUser(User user, Model model) {
+	public String addUser(Usr user, Model model) {
 		var title = "AddUser";
 		model.addAttribute("title", title);
 		return ("addUser");
 	}
 
 	@PostMapping("/saveUser")
-	public String saveUser(@Valid User user, Errors errors) {
+	public String saveUser(@Valid Usr user, Errors errors) {
 		if (errors.hasErrors())
 			return ("addUser");
 		userService.save(user);
@@ -47,7 +47,7 @@ public class UserController {
 	}
 
 	@GetMapping("/editUser/{id_user}")
-	public String editUser(User user, Model model) {
+	public String editUser(Usr user, Model model) {
 		var title = "EditUser";
 		model.addAttribute("title", title);
 		user = userService.findById(user).get();
@@ -56,7 +56,7 @@ public class UserController {
 	}
 
 	@GetMapping("/deleteUser")
-	public String deleteUser(User user) {
+	public String deleteUser(Usr user) {
 		userService.deleteById(user);
 		return "redirect:/users/abm_users";
 	}

@@ -30,7 +30,7 @@ public class Voucher implements Serializable {
 	@OneToOne
 	@NotEmpty
 	@JoinColumn(name = "id_user")
-	private User user;
+	private Usr user;
 	@OneToOne
 	@NotEmpty
 	@JoinColumn(name = "id_payment")

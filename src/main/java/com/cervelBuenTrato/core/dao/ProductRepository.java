@@ -3,9 +3,9 @@ package com.cervelBuenTrato.core.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.cervelBuenTrato.core.model.Profile;
+import com.cervelBuenTrato.core.model.Product;
 
 @Repository
-public interface ProfileRepository extends JpaRepository<Profile, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
 }
