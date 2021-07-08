@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cervelBuenTrato.core.dao.UserRepository;
 import com.cervelBuenTrato.core.model.Profile;
@@ -25,6 +26,7 @@ public class UserService implements UserDetailsService {
 	private UserRepository userRepository;
 
 	@Override
+	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usr user = userRepository.findByUsername(username);
 		if (user == null) {
