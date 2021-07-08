@@ -25,6 +25,7 @@ public class Purchase implements Serializable {
 	private Long id_purchase;
 	private Long nro_purchase;
 	@OneToMany
+	@JoinColumn(name = "id_purchase")
 	private List<Order> orders;
 	private Date date;
 	@OneToOne

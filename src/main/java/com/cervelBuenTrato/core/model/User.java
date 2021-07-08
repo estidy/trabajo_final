@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -37,10 +36,11 @@ public class User implements Serializable {
 	private String email;
 	private String phone;
 	private Boolean active = Boolean.TRUE;
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_profile")
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_user")
 	private List<Profile> profiles;
 	@OneToMany
+	@JoinColumn(name = "id_user")
 	private List<Purchase> purchases;
 
 	public static long getSerialversionuid() {
