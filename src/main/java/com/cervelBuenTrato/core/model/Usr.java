@@ -17,7 +17,7 @@ import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
-@Entity(name = "user")
+@Entity(name = "usr")
 public class Usr implements Serializable {
 
 	private static final long serialVersionUID = -1L;
