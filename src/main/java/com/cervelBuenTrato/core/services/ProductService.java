@@ -2,47 +2,21 @@ package com.cervelBuenTrato.core.services;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.cervelBuenTrato.core.dao.ProductRepository;
 import com.cervelBuenTrato.core.model.Product;
 
-import lombok.extern.slf4j.Slf4j;
+public interface ProductService {
 
-@Service()
-@Slf4j
-public class ProductService {
+	public Iterable<Product> findAll();
 
-	@Autowired
-	private ProductRepository productRepository;
+	public Page<Product> findAll(Pageable paginable);
 
-	@Transactional(readOnly = true)
-	public Iterable<Product> findAll() {
-		return productRepository.findAll();
-	}
+	public Optional<Product> findById(Product prod);
 
-	@Transactional(readOnly = true)
-	public Page<Product> findAll(Pageable paginable) {
-		return productRepository.findAll(paginable);
-	}
+	public Product save(Product prod);
 
-	@Transactional(readOnly = true)
-	public Optional<Product> findById(Product prod) {
-		return productRepository.findById(prod.getId_product());
-	}
-
-	@Transactional
-	public Product save(Product prod) {
-		return productRepository.save(prod);
-	}
-
-	@Transactional
-	public void deleteById(Product prod) {
-		productRepository.deleteById(prod.getId_product());
-	}
+	public void deleteById(Product prod);
 
 }

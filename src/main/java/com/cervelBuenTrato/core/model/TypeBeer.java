@@ -10,8 +10,10 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity(name = "type_beer")
 
 public class TypeBeer implements Serializable {

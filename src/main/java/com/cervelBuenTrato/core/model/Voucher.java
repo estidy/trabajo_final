@@ -13,8 +13,10 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity(name = "voucher")
 
 public class Voucher implements Serializable {

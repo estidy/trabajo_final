@@ -10,8 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity(name = "orders")
 public class Order implements Serializable {
 
@@ -23,10 +25,9 @@ public class Order implements Serializable {
 	@JoinColumn(name = "id_product")
 	private Product product;
 	private Integer quantity;
-	private Double price;
 
 	public Double getTotalPrice() {
-		return (Math.pow(this.quantity, this.price));
+		return (Math.pow(product.getPrice(), this.quantity));
 	}
 
 }

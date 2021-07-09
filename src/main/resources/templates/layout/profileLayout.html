@@ -23,6 +23,9 @@
 		<!-- PIE DE PAGINA  -->
 		<footer th:fragment="footerProfile">
 			<p>[[#{layoutIndex.textoFooterIndex}]] <a href="www.infoApp.com"></a> @InfoApp- 2021 </p>
+			<form method="POST" th:actiom="@{/logout}">
+			<a href="#" onclick="this.parentNode.submit();"> Logout</a>
+			</form>
 			<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 		</footer>
 	</body>

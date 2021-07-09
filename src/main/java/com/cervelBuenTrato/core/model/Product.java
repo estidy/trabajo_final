@@ -1,7 +1,6 @@
 package com.cervelBuenTrato.core.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -35,7 +34,7 @@ public abstract class Product implements Serializable {
 	@NotEmpty
 	private Integer stock_actual;
 	@NotEmpty
-	private BigDecimal price;
+	private Double price;
 	@NotEmpty
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")

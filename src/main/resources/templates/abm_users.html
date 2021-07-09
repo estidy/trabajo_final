@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http//www.thymeleaf.org">
 <head th:replace="layout/indexLayout::head"></head>
 <body>
-<header th:replace="layout/indexLayout::headerIndex"></header>
+<header th:replace="layout/profileLayout::headerProfile"></header>
 <section>
 	<h3>-*Listado de Usuarios*-</h3>
 	<a th:href="@{/users/addUser}">Agregar Usuario</a>
@@ -30,6 +30,6 @@
 		<p> La Lista de usuarios esta vacia </p>
 	</div>
 </section>
-<footer th:replace="layout/indexLayout::footerIndex"></footer>
+<footer th:replace="layout/profileLayout::footerProfile"></footer>
 </body>
 </html>

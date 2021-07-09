@@ -1,7 +1,9 @@
 package com.cervelBuenTrato.core.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -36,9 +39,8 @@ public class Usr implements Serializable {
 	private String email;
 	private String phone;
 	private Boolean active = Boolean.TRUE;
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_user")
-	private List<Profile> profiles;
+	@ManyToMany(cascade = CascadeType.ALL)
+	private Set<Profile> profiles = new HashSet<>();
 	@OneToMany
 	@JoinColumn(name = "id_user")
 	private List<Purchase> purchases;
@@ -53,5 +55,9 @@ public class Usr implements Serializable {
 
 	public void desactiveUser() {
 		this.active = Boolean.FALSE;
+	}
+
+	public void addUserProfile(Profile p) {
+		profiles.add(p);
 	}
 }
