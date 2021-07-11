@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class Purchase implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_purchase;
 	private Long nro_purchase;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "id_purchase")
 	private List<Order> orders;
 	private Date date;

@@ -4,12 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -27,8 +29,10 @@ public class Promotion implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_promotion;
-	@OneToMany
-	@JoinColumn(name = "id_promotion")
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "promotion_product", joinColumns = {
+			@JoinColumn(name = "promotion_id_promotion") }, inverseJoinColumns = {
+					@JoinColumn(name = "product_id_product") })
 	private List<Product> products;
 	private String description;
 	@Temporal(TemporalType.DATE)

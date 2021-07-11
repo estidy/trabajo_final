@@ -5,7 +5,7 @@
 <header th:replace="layout/indexLayout::headerIndex"></header>
 	<a th:href="@{/users/abm_users}">Volver</a>
 	<h1> DATOS DEL USUARIO</h1>
-	<form th:action="@{/users/saveUser}" method="POST" th:object="${user}">
+	<form th:action="@{/users/saveUser}" method="POST" th:object="${usr}">
 		<input type="hidden" name="id_user" th:field="*{id_user}"/>
 		<br/>
 		<label for="username">Nombre de Usuario:</label>
@@ -22,6 +22,11 @@
 		<br/>
 		<label for="phone">Phone:</label>
 		<input type="tel" name="phone" th:field="*{phone}"/>
+		<br/>
+		<label for="profile">Roles:</label>
+		<select th:field="*{profiles}" multiple="multiple" id="user_profile" name="user_profile">		    
+		    <option th:each="p : ${profiles}" th:value="${p.id_profile}" th:text="${p.name}"> </option>
+		</select>
 		<br/>
 		<input type=submit name="Guardar"  value="Guardar"/>
 	</form>

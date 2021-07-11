@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
@@ -40,6 +41,8 @@ public class Usr implements Serializable {
 	private String phone;
 	private Boolean active = Boolean.TRUE;
 	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "usr_profile", joinColumns = { @JoinColumn(name = "usr_id_user") }, inverseJoinColumns = {
+			@JoinColumn(name = "profile_id_profile") })
 	private Set<Profile> profiles = new HashSet<>();
 	@OneToMany
 	@JoinColumn(name = "id_user")
