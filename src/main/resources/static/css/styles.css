@@ -1,0 +1,29 @@
+@charset "ISO-8859-1";
+@font-face {
+  font-family: 'aesthetic';
+  src: url('/fonts/Aesthetic.ttf') format('truetype')
+}
+@font-face {
+  font-family: 'whiteStorm';
+  src: url('/fonts/WhiteStorm.otf') format('truetype')
+}
+.socialMedia a{text-decoration:none;
+               color:white;
+               margin-left:4%
+               }
+.socialMedia a:hover{color:#e1a60b
+               }
+.menu{width:80%	
+}
+
+.ingresar{
+	width:20%
+}
+.ingresar button{
+	background-color: #e1a60b ;
+}
+.main-title{
+	font-family: 'aesthetic';
+	font-size: 3rem;
+	color:white
+}
