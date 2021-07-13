@@ -24,7 +24,7 @@
 	text-decoration:none
 }
 a.btn-bg:hover{
-	background-color: black ;
+	background-color: black;
 	border:2px dashed #e1a60b ;
 	border-radius: 5px;
 	text-decoration:none;
@@ -63,7 +63,7 @@ a.btn-bg:hover{
 }
 
 .cardLogin{
-	margin:5% auto 5%
+	margin:10% auto 5%
 }
 .buttonLogin button{background-color: #e1a60b; width:100%;}
 .bg-gold{ background-color: #e1a60b}
@@ -72,4 +72,5 @@ a.btn-bg:hover{
 }
 .footerIndex a{
 	text-decoration:none;
+	color:white
 }

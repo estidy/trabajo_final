@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/")
 public class IndexController {
 
-	@GetMapping("/")
+	@GetMapping
 	public String index(Model model) {
 		var title = "Home";
 		var text = "Ingresar";
