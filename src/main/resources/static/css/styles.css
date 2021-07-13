@@ -41,6 +41,13 @@ a.btn-bg:hover{
 }
 .bg-header{background-color:black	
 }
+.nav-menu{
+  position: absolute;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.7);
+  width:100%;
+  left:0;
+}
 .menu a{
 	color:white;
 	text-decoration:none;
@@ -56,10 +63,13 @@ a.btn-bg:hover{
 }
 
 .cardLogin{
-	width:50%;
-	margin:5% auto 5%;
-	border:2px solid #e1a60b
+	margin:5% auto 5%
 }
-.buttonLogin{ width:20%;}
 .buttonLogin button{background-color: #e1a60b; width:100%;}
 .bg-gold{ background-color: #e1a60b}
+.icon-menu{
+	color:white
+}
+.footerIndex a{
+	text-decoration:none;
+}
