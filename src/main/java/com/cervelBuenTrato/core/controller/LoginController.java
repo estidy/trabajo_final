@@ -3,22 +3,16 @@ package com.cervelBuenTrato.core.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@Slf4j
-@RequestMapping("/")
-public class IndexController {
+public class LoginController {
 
-	@GetMapping("/")
-	public String index(Model model) {
-		var title = "Home";
-		var text = "Ingresar";
+	@GetMapping("/login")
+	public String login(Model model) {
+		var title = "Login";
+		var text = "Registrarse";
 		model.addAttribute("title", title);
 		model.addAttribute("text", text);
-		return "index";
+		return "login";
 	}
-
 }

@@ -14,18 +14,18 @@
 	<body>
 	  	<div id="containerIndex" class="container-fluid">
 	  		<!-- BARRA DE NAVEGACION  -->
-			<header th:fragment="headerIndex" class="container-fluid bg-dark"> 
+			<header th:fragment="headerIndex" class="container-fluid bg-header"> 
 			 <div class="container text-center">
 			   <div class="text-light d-sm-flex justify-content-center align-items-center" >
-					<div class="col-sm-3 ml-0">	
+					<div class="col-sm-3 ml-0 my-auto">	
 					 	<p><i class="fas fa-map-marker-alt fa-lg"></i> Av. 7 e/ 610 y 611, Nro. 5477</p>	
 					</div>
 					
-					<div class="col-sm-2">
+					<div class="col-sm-2 my-auto">
 					 	<p><i class="fab fa-whatsapp fa-lg"> </i>221-6130780 </p>
 					</div> 
 					
-					<div class="col-sm-3">
+					<div class="col-sm-3 my-auto">
 						<p><i class="far fa-clock fa-lg"></i>Lun-Dom: 18:00 hs-12:00 hs</p>
 					</div>
 					
@@ -40,7 +40,7 @@
 					<h1 class="main-title">El Buen Trato</h1>
 				</div>
 				<div class="mx-auto">
-					<nav class="navbar navbar-expand-lg navbar-dark">
+					<nav class="navbar navbar-expand-lg nav-menu">
 					  <div class="container-fluid">
 					    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 					      <span class="navbar-toggler-icon"></span>
@@ -48,23 +48,23 @@
 					    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 					      <ul class="navbar-nav ml-0 mb-2 mb-lg-0 menu d-sm-flex">
 					        <li class="nav-item  flex-fill">
-					          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+					          <a class="nav-link active" aria-current="page" href="#"><span>Inicio</span></a>
 					        </li>
 					        <li class="nav-item flex-fill">
-					          <a class="nav-link" href="#">Sobre Nosotros</a>
+					          <a class="nav-link" href="#"><span>Sobre Nosotros</span></a>
 					        </li>
 					        <li class="nav-item flex-fill">
-					          <a class="nav-link" href="#">Contacto</a>
+					          <a class="nav-link" href="#"><span>Contacto</span></a>
 					        </li>
 					        <li class="nav-item flex-fill">
-					          <a class="nav-link" href="#">Menu</a>
+					          <a class="nav-link" href="#"><span>Menu</span></a>
 					        </li>
 					        <li class="nav-item flex-fill">
-					          <a class="nav-link" href="#">Galeria</a>
+					          <a class="nav-link" href="#"><span>Galeria</span></a>
 					        </li>
 					      </ul>
-					      <div class="d-sm-flex ingresar justify-content-end">
-					        <button class="btn" type="button">Ingresar</button>
+					      <div class="d-sm-flex ingresar justify-content-end">					        
+					        <a th:href="@{/login}" class="rounded btn-bg"><button th:text="${text}"  class="btn" type="button"></button></a>
 					      </div>
 					    </div>
 					  </div>

@@ -13,17 +13,53 @@
                }
 .socialMedia a:hover{color:#e1a60b
                }
-.menu{width:80%	
+.menu{width:70%	
 }
 
 .ingresar{
-	width:20%
+	width:30%
 }
-.ingresar button{
+.btn-bg{
 	background-color: #e1a60b ;
+	text-decoration:none
+}
+a.btn-bg:hover{
+	background-color: black ;
+	border:2px dashed #e1a60b ;
+	border-radius: 5px;
+	text-decoration:none;
+}
+.ingresar button:hover{
+		color:#e1a60b;
+	font-size: 1em;
+	font-style: bold;
 }
 .main-title{
 	font-family: 'aesthetic';
 	font-size: 3rem;
 	color:white
 }
+.bg-header{background-color:black	
+}
+.menu a{
+	color:white;
+	text-decoration:none;
+}
+.menu a:hover{
+	color:#e1a60b;
+	text-decoration:none;
+}
+.menu span:hover{
+	color:#e1a60b;
+	text-decoration:none;
+	border-bottom:2px dashed #e1a60b ;
+}
+
+.cardLogin{
+	width:50%;
+	margin:5% auto 5%;
+	border:2px solid #e1a60b
+}
+.buttonLogin{ width:20%;}
+.buttonLogin button{background-color: #e1a60b; width:100%;}
+.bg-gold{ background-color: #e1a60b}

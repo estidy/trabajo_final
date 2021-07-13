@@ -9,4 +9,5 @@ import com.cervelBuenTrato.core.model.Usr;
 public interface UserRepository extends JpaRepository<Usr, Long> {
 
 	Usr findByUsername(String username);
+
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
+<head th:replace="layout/indexLayout::headIndex"></head>
+<body>
+<header th:replace="layout/indexLayout::headerIndex"></header>
+<section>
+   <div class="card cardLogin">
+	   <div class="card-header text-center">
+		    <h3>Iniciar Sesion</h3>
+	   </div>
+	   <div class="card-body"> 
+		   <form method="POST" th:action="@{/users/abm_users}">
+			  <div class="row mb-3">
+			    <label for="username" class="col-sm-2 col-form-label">Usuario</label>
+			    <div class="col-sm-10 d-flex align-items-center">
+			      <i class="far fa-envelope fa-lg"></i> <input type="text" class="form-control" name="username" id="username">
+			    </div>
+			  </div>	  
+			  <div class="row mb-3">
+			    <label for="password" class="col-sm-2 col-form-label">Password</label>
+			    <div class="col-sm-10 d-flex align-items-center">
+			      <i class="fas fa-unlock-alt fa-lg"></i><input type="password" class="form-control" name="password" id="password">
+			    </div>
+			  </div>
+			  <div class="buttonLogin mx-auto">
+			     <button type="submit" class="btn">Entrar</button>
+			  </div>	  
+		      
+			</form>
+	   </div>
+   </div>
+</section>
+<footer th:replace="layout/indexLayout::footerIndex"></footer>
+</body>
+</html>
