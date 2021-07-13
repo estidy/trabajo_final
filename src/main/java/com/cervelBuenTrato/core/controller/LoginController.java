@@ -11,8 +11,10 @@ public class LoginController {
 	public String login(Model model) {
 		var title = "Login";
 		var text = "Registrarse";
+		var link = "/register";
 		model.addAttribute("title", title);
 		model.addAttribute("text", text);
+		model.addAttribute("link", link);
 		return "login";
 	}
 }

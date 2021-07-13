@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" 
       xmlns="http//www.w3.org/1999/xhtml"
-      xmlns:th="http//www.thymeleaf.org">
+      xmlns:th="http//www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<head th:fragment="headIndex">
 	    <meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,7 +65,7 @@
 					        </li>
 					      </ul>
 					      <div class="d-sm-flex ingresar justify-content-end">					        
-					        <a th:href="@{/login}" class="rounded btn-bg"><button th:text="${text}"  class="btn" type="button"></button></a>
+					        <a th:href="@{${link}}" class="rounded btn-bg"><button th:text="${text}"  class="btn" type="button"></button></a>
 					      </div>
 					    </div>
 					  </div>

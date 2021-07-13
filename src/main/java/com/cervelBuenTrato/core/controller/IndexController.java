@@ -16,8 +16,10 @@ public class IndexController {
 	public String index(Model model) {
 		var title = "Home";
 		var text = "Ingresar";
+		var link = "/login";
 		model.addAttribute("title", title);
 		model.addAttribute("text", text);
+		model.addAttribute("link", link);
 		return "index";
 	}
 
