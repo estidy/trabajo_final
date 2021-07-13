@@ -4,27 +4,33 @@
 <body>
 <header th:replace="layout/profileLayout::headerProfile"></header>
 <section>
-	<h3>-*Listado de Usuarios*-</h3>
-	<a th:href="@{/users/addUser}">Agregar Usuario</a>
+	<h3 class="text-center">Listado de Usuarios</h3>
+	<a th:href="@{/users/addUser}"><button type="button" class="btn btn-warning"> <i class="fas fa-user-plus fa-lg"></i>Agregar Usuario</button></a>
 	<div th:if="${users != null and !users.empty}">
-		<table border ="1">
-			  <tr>
-			    <th>NOMBRE</th>
-			    <th>CLAVE</th>
-			    <th>EMAIL</th> 
-			    <th>TELEFONO</th>
-			    <th>EDITAR</th>
-			    <th>ELIMINAR</th>
-			  </tr> 
-			  <tr th:each="u : ${users}">
+			<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">NOMBRE USUARIO</th>
+		      <th scope="col">CLAVE</th>
+		      <th scope="col">EMAIL</th>
+		      <th scope="col">TELEFONO</th>
+		      <th scope="col">EDITAR</th>
+		      <th scope="col">ELIMINAR</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="u : ${users}" >
+		        <td scope="row"></td>
 			    <td th:text="${u.username}"></td>
 			    <td th:text="${u.password}"></td>
 			    <td th:text="${u.email}"></td>  
 			    <td th:text="${u.phone}"></td>
-			    <td> <a th:href="@{/users/editUser/} + ${u.id_user}" th:text="Editar"> </a> </td>
-			    <td> <a th:href="@{/users/deleteUser(id_user=${u.id_user})}" th:text="Eliminar"> </a> </td>
-			  </tr>   
-		 </table>
+			    <td> <a th:href="@{/users/editUser/} + ${u.id_user}"><button type="button" class="btn btn-warning"><i class="far fa-edit"></i> </button></a> </td>
+			    <td> <a th:href="@{/users/deleteUser(id_user=${u.id_user})}"><button type="button" class="btn btn-warning"><i class="far fa-trash-alt"></i> </button> </a> </td>
+			  </tr>  
+		  </tbody>
+		</table>
 	</div>
 	<div th:if="${users == null or users.empty}">
 		<p> La Lista de usuarios esta vacia </p>
