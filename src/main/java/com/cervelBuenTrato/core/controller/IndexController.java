@@ -9,10 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@RequestMapping("/")
+@RequestMapping
 public class IndexController {
 
-	@GetMapping
+	@GetMapping("/")
 	public String index(Model model) {
 		var title = "Home";
 		var text = "Ingresar";
@@ -21,6 +21,28 @@ public class IndexController {
 		model.addAttribute("text", text);
 		model.addAttribute("link", link);
 		return "index";
+	}
+
+	@GetMapping("/login")
+	public String login(Model model) {
+		var title = "Login";
+		var text = "Registrarse";
+		var link = "/register";
+		model.addAttribute("title", title);
+		model.addAttribute("text", text);
+		model.addAttribute("link", link);
+		return "login";
+	}
+
+	@GetMapping("/loginError")
+	public String loginError(Model model) {
+		var title = "LoginError";
+		var text = "Volver";
+		var link = "/login";
+		model.addAttribute("title", title);
+		model.addAttribute("text", text);
+		model.addAttribute("link", link);
+		return "/templates_errors/403";
 	}
 
 }

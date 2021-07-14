@@ -3,10 +3,12 @@
 <head th:replace="layout/profileLayout::headProfile"></head>
 <body>
 <header th:replace="layout/profileLayout::headerProfile"></header>
-<section>
-	<h3 class="text-center">Listado de Usuarios</h3>
+<section class="bg-light">
+    <div class="alert alert-secondary" role="alert">
+        <h3 class="text-center">Listado de Usuarios</h3>
+    </div>
 	<a th:href="@{/users/addUser}"><button type="button" class="btn btn-warning"> <i class="fas fa-user-plus fa-lg"></i>Agregar Usuario</button></a>
-	<div th:if="${users != null and !users.empty}">
+	<div th:if="${users != null and !users.empty}" class="my-4">
 			<table class="table">
 		  <thead>
 		    <tr>

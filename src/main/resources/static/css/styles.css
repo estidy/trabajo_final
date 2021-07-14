@@ -62,7 +62,7 @@ a.btn-bg:hover{
 	border-bottom:2px dashed #e1a60b ;
 }
 
-.cardLogin{
+.cardLogin, .card-error{
 	margin:10% auto 5%
 }
 .buttonLogin button{background-color: #e1a60b; width:100%;}
