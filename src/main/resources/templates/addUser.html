@@ -27,9 +27,10 @@
 		<select th:field="*{profiles}" multiple="multiple" id="user_profile" name="user_profile">		    
 		    <option th:each="p : ${profiles}" th:value="${p.id_profile}" th:text="${p.name}"> </option>
 		</select>
+		<span th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}"> Error Rol</span>
 		<br/>
 		<input type=submit name="Guardar"  value="Guardar"/>
-	</form>
+     </form>
 <footer th:replace="layout/profileLayout::footerProfile"></footer>
 </body>
 </html>

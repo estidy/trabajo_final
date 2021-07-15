@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cervelBuenTrato.core.model.Usr;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -43,6 +45,22 @@ public class IndexController {
 		model.addAttribute("text", text);
 		model.addAttribute("link", link);
 		return "/templates_errors/403";
+	}
+
+	@GetMapping("/register")
+	public String register(Usr user, Model model) {
+		var title = "Registrarse";
+		var text = "Volver";
+		var link = "/login";
+		model.addAttribute("title", title);
+		model.addAttribute("text", text);
+		model.addAttribute("link", link);
+		return "register";
+	}
+
+	@GetMapping("/homeProfile")
+	public String homeProfile() {
+		return "homeProfile";
 	}
 
 }

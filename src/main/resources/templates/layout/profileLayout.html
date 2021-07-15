@@ -17,6 +17,12 @@
 	  		<!-- BARRA DE NAVEGACION  -->
 			<header th:fragment="headerProfile"> 
 				<h1> header Profile</h1>
+				<div sec:authorize="isAuthenticated()">
+				   <form th:action="@{/login}" method="post">
+                      <input type="submit" value="Salir"/>
+                   </form>
+                   <!-- <a href="<c:url value='/login'>">Logout</a>-->
+                </div>
 			</header>
 			<!-- CONTENIDO DINAMICO  -->
 			<main id="contentProfile">
@@ -25,9 +31,6 @@
 		<!-- PIE DE PAGINA  -->
 		<footer th:fragment="footerProfile">
 			<p>[[#{layoutIndex.textoFooterIndex}]] <a href="www.infoApp.com"></a> @InfoApp- 2021 </p>
-			<form>
-			<a href="#" onclick="this.parentNode.submit();"><button type="button" class="btn btn-warning" th:text="Logout"></button></a>
-			</form>
 			<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 		</footer>
 	</body>

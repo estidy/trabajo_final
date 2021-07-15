@@ -37,9 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		 * .anyRequest().authenticated().and().formLogin().loginPage("/login").and().
 		 * exceptionHandling() .accessDeniedPage("/templates_errors/403");
 		 */
-
-		http.authorizeRequests().antMatchers("/", "/index", "/login").permitAll().and().formLogin().loginPage("/login")
-				.failureUrl("/loginError").and().logout().logoutSuccessUrl("/login");
+		http.csrf().disable().authorizeRequests().antMatchers("/", "/index", "/login").permitAll().and().formLogin()
+				.loginPage("/login").defaultSuccessUrl("/users/abm_users", true).failureUrl("/loginError").and()
+				.logout().deleteCookies("JSESSIONID").logoutSuccessUrl("/login");
 	}
 
 }

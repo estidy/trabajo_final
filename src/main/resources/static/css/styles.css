@@ -7,6 +7,7 @@
   font-family: 'whiteStorm';
   src: url('/fonts/WhiteStorm.otf') format('truetype')
 }
+/* HEADER INDEX  */
 .socialMedia a{text-decoration:none;
                color:white;
                margin-left:4%
@@ -20,17 +21,12 @@
 	width:30%
 }
 .btn-bg{
-	background-color: #e1a60b ;
 	text-decoration:none
 }
 a.btn-bg:hover{
-	background-color: black;
-	border:2px dashed #e1a60b ;
-	border-radius: 5px;
 	text-decoration:none;
 }
 .ingresar button:hover{
-		color:#e1a60b;
 	font-size: 1em;
 	font-style: bold;
 }
@@ -65,11 +61,18 @@ a.btn-bg:hover{
 .cardLogin, .card-error{
 	margin:10% auto 5%
 }
-.buttonLogin button{background-color: #e1a60b; width:100%;}
+.buttonLogin button{width:100%;}
 .bg-gold{ background-color: #e1a60b}
 .icon-menu{
 	color:white
 }
+
+/* CONTENT INDEX  */
+.carousel img{
+	max-height:500px;
+	object-fit: cover;
+}
+/* FOOTER INDEX  */
 .footerIndex a{
 	text-decoration:none;
 	color:white
