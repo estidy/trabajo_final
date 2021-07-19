@@ -30,16 +30,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		// permisos a usuarios
 		/*
-		 * http.authorizeRequests().antMatchers("/", "/index", "/login").permitAll()
-		 * .antMatchers("/users/**", "/users/abm_users").hasAnyRole("USER", "ADMIN")
-		 * .antMatchers("/users/editUser/**", "/users/addUser/**",
-		 * "/users/deleteUser").hasRole("ADMIN")
-		 * .anyRequest().authenticated().and().formLogin().loginPage("/login").and().
-		 * exceptionHandling() .accessDeniedPage("/templates_errors/403");
+		 * http .authorizeRequests().antMatchers("/oauth/token", "/oauth/authorize**",
+		 * "/publica").permitAll(); // .anyRequest().authenticated();
+		 * 
+		 * http.requestMatchers().antMatchers("/privada") // Denegamos el acceso a
+		 * "/privada" .and().authorizeRequests()
+		 * .antMatchers("/privada").access("hasRole('USER')")
+		 * .and().requestMatchers().antMatchers("/admin") // Denegamos el acceso a
+		 * "/admin" .and().authorizeRequests()
+		 * .antMatchers("/admin").access("hasRole('ADMIN')");
 		 */
-		http.csrf().disable().authorizeRequests().antMatchers("/", "/index", "/login").permitAll().and().formLogin()
-				.loginPage("/login").defaultSuccessUrl("/users/abm_users", true).failureUrl("/loginError").and()
-				.logout().deleteCookies("JSESSIONID").logoutSuccessUrl("/login");
+		http.csrf().disable().authorizeRequests().antMatchers("/", "/index", "/login", "/register").permitAll()
+				.antMatchers("/users/abm_users/*").hasRole("ADMIN").and().formLogin().loginPage("/login")
+				.defaultSuccessUrl("/users/homeProfile", true).failureUrl("/loginError").and().logout()
+				.deleteCookies("JSESSIONID").logoutSuccessUrl("/login");
 	}
 
 }

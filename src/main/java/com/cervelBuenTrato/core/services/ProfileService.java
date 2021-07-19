@@ -28,8 +28,8 @@ public class ProfileService {
 	}
 
 	@Transactional(readOnly = true)
-	public Optional<Profile> findById(Profile prof) {
-		return profileRepository.findById(prof.getId_profile());
+	public Optional<Profile> findById(Long id) {
+		return profileRepository.findById(id);
 	}
 
 	@Transactional
@@ -40,6 +40,11 @@ public class ProfileService {
 	@Transactional
 	public void deleteById(Profile prof) {
 		profileRepository.deleteById(prof.getId_profile());
+	}
+
+	@Transactional(readOnly = true)
+	public Profile findByName(String name) {
+		return (profileRepository.findByName(name));
 	}
 
 }

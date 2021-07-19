@@ -18,7 +18,10 @@
 			<header th:fragment="headerProfile"> 
 				<h1> header Profile</h1>
 				<div sec:authorize="isAuthenticated()">
-				   <form th:action="@{/login}" method="post">
+				     <i class="fas fa-user"></i>
+                     <span>Bievenido:</span>
+                     <span sec:authentication="name">Usuario</span>
+				   <form th:action="@{/login}" method="GET">
                       <input type="submit" value="Salir"/>
                    </form>
                    <!-- <a href="<c:url value='/login'>">Logout</a>-->

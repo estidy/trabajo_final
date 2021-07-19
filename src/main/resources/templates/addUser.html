@@ -5,29 +5,30 @@
 <header th:replace="layout/profileLayout::headerProfile"></header>
 	<a th:href="@{/users/abm_users}">Volver</a>
 	<h1> DATOS DEL USUARIO</h1>
-	<form th:action="@{/users/saveUser}" method="POST" th:object="${usr}">
+	<form th:action="@{/users/saveUser}" method="POST" th:object="${usr}" class="was-validated">
 		<input type="hidden" name="id_user" th:field="*{id_user}"/>
 		<br/>
 		<label for="username">Nombre de Usuario:</label>
-		<input type="text" name="username" th:field="*{username}"/>
-		<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"> Error Nombre</span>
+		<input type="text" name="username" th:field="*{username}" required/>
+		<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:errorclass="errorfield"> Error Nombre</span>
+		<p th:if="${existUsername}" class="text-danger">El nombre de usuario ya existe</p>
 		<br/>
 		<label for="email">Email:</label>
-		<input type="text" name="email" th:field="*{email}"/>
-		<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> Error Email</span>
+		<input type="text" name="email" th:field="*{email}" required/>
+		<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="errorfield"> Formato Incorrecto</span>
+		<p th:if="${existEmail}" class="text-danger">El Email Ya existe</p>
 		<br/>
 		<label for="password">Password:</label>
-		<input type="text" name="password" th:field="*{password}"/>
-		<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> Error Password</span>
+		<input type="text" name="password" th:field="*{password}" required/>
+		<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="errorfield"> Error Password</span>
 		<br/>
 		<label for="phone">Phone:</label>
 		<input type="tel" name="phone" th:field="*{phone}"/>
 		<br/>
-		<label for="profile">Roles:</label>
-		<select th:field="*{profiles}" multiple="multiple" id="user_profile" name="user_profile">		    
+		<label for="profiles">Roles:</label>
+		<select th:field="*{profiles}" multiple="multiple" id="profiles" name="profiles" required>		    
 		    <option th:each="p : ${profiles}" th:value="${p.id_profile}" th:text="${p.name}"> </option>
 		</select>
-		<span th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}"> Error Rol</span>
 		<br/>
 		<input type=submit name="Guardar"  value="Guardar"/>
      </form>

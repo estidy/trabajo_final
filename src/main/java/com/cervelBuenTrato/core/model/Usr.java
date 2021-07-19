@@ -41,7 +41,7 @@ public class Usr implements Serializable {
 	private String email;
 	private String phone;
 	private Boolean active = Boolean.TRUE;
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "usr_profile", joinColumns = { @JoinColumn(name = "usr_id_user") }, inverseJoinColumns = {
 			@JoinColumn(name = "profile_id_profile") })
 	private Set<Profile> profiles = new HashSet<>();

@@ -9,20 +9,22 @@
 		    <h3>Registro</h3>
 	   </div>
 	   <div>
-	     <form th:action="@{/users/saveUser}" method="POST" th:object="${usr}">
+	     <form th:action="@{/users/saveNewUser}" method="POST" th:object="${usr}">
 			<input type="hidden" name="id_user" th:field="*{id_user}"/>
 			<br/>
 			<label for="username">Nombre de Usuario:</label>
-			<input type="text" name="username" th:field="*{username}"/>
-			<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"> Error Nombre</span>
+			<input type="text" name="username" th:field="*{username}" required/>
+			<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:errorclass="errorfield"> Error Nombre</span>
+			<p th:if="${existUsername}" class="text-danger">El nombre de usuario ya existe</p>
 			<br/>
 			<label for="email">Email:</label>
-			<input type="text" name="email" th:field="*{email}"/>
-			<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> Error Email</span>
+			<input type="text" name="email" th:field="*{email}" required/>
+			<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="errorfield"> El formato del email es incorrecto</span>
+			<p th:if="${existEmail}" class="text-danger">El Email Ya existe</p>
 			<br/>
 			<label for="password">Password:</label>
 			<input type="text" name="password" th:field="*{password}"/>
-			<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> Error Password</span>
+			<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="errorfield"> Error Password</span>
 			<br/>
 			<label for="phone">Phone:</label>
 			<input type="tel" name="phone" th:field="*{phone}"/>

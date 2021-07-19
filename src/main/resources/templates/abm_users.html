@@ -22,8 +22,8 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <tr th:each="u : ${users}" >
-		        <td scope="row"></td>
+		    <tr th:each="u,iterator : ${users}" >
+		        <td scope="row" th:text="${iterator.index+1}"></td>
 			    <td th:text="${u.username}"></td>
 			    <td th:text="${u.password}"></td>
 			    <td th:text="${u.email}"></td>  

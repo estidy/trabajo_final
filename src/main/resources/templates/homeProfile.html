@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/profileLayout::headProfile"></head>
+<body>
+<header th:replace="layout/profileLayout::headerProfile"></header>
+<a th:href="@{/users/abm_users}"><button type="button" class="btn btn-warning"> lista de usuarios</button></a>
+	<h1> DASHBOARD</h1>
+
+<footer th:replace="layout/profileLayout::footerProfile"></footer>
+</body>
+</html>

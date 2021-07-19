@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
+<head th:replace="layout/profileLayout::headProfile"></head>
+<body>
+<header th:replace="layout/profileLayout::headerProfile"></header>
+<section class="bg-light">
+    <div class="alert alert-secondary" role="alert">
+        <h3 class="text-center">Listado de Usuarios</h3>
+    </div>
+	<a th:href="@{/users/addProd}"><button type="button" class="btn btn-warning"> <i class="fas fa-user-plus fa-lg"></i>Agregar Usuario</button></a>
+	<div th:if="${products != null and !products.empty}" class="my-4">
+			<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">NOMBRE</th>
+		      <th scope="col">DESCRIPCION</th>
+		      <th scope="col">STOCK_MIN</th>
+		      <th scope="col">STOCK_ACTUAL</th>
+		      <th scope="col">PRECIO</th>
+		      <th scope="col">VENCIMIENTO</th>
+		      <th scope="col">MEDIDA</th>
+		      <th scope="col">MARGEN DE GANANCIA</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="p,iterator : ${products}" >
+		        <td scope="row" th:text="${iterator.index+1}"></td>
+			    <td th:text="${p.name}"></td>
+			    <td th:text="${p.description}"></td>
+			    <td th:text="${p.stock_min}"></td>  
+			    <td th:text="${p.stock_actual}"></td>
+			    <td th:text="${p.price}"></td>
+			    <td th:text="${p.expiration}"></td>
+			    <td th:text="${p.measure}"></td>  
+			    <td th:text="${p.margin_gain}"></td>
+			    <td> <a th:href="@{/products/editProd/} + ${u.id_prod}"><button type="button" class="btn btn-warning"><i class="far fa-edit"></i> </button></a> </td>
+			    <td> <a th:href="@{/products/deleteProd?id_product=} + ${p.id_product}"><button type="button" class="btn btn-warning"><i class="far fa-trash-alt"></i> </button> </a> </td>
+			  </tr>  
+		  </tbody>
+		</table>
+	</div>
+	<div th:if="${users == null or users.empty}">
+		<p> La Lista de productos esta vacia </p>
+	</div>
+</section>
+<footer th:replace="layout/profileLayout::footerProfile"></footer>
+</body>
+</html>

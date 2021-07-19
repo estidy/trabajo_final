@@ -7,4 +7,5 @@ import com.cervelBuenTrato.core.model.Profile;
 
 @Repository
 public interface ProfileRepository extends JpaRepository<Profile, Long> {
+	Profile findByName(String name);
 }

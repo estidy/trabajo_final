@@ -66,4 +66,14 @@ public class UserService implements UserDetailsService {
 	public void deleteById(Usr user) {
 		userRepository.deleteById(user.getId_user());
 	}
+
+	@Transactional(readOnly = true)
+	public boolean findByEmail(String email) {
+		return (((userRepository.findByEmail(email)) != null) ? true : false);
+	}
+
+	@Transactional(readOnly = true)
+	public boolean findByUsername(String username) {
+		return (((userRepository.findByUsername(username)) != null) ? true : false);
+	}
 }

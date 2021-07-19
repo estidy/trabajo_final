@@ -58,9 +58,4 @@ public class IndexController {
 		return "register";
 	}
 
-	@GetMapping("/homeProfile")
-	public String homeProfile() {
-		return "homeProfile";
-	}
-
 }
