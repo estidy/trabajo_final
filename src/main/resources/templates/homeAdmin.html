@@ -9,13 +9,9 @@
 <section class="bg-light py-4 row container-fluid">
      <div class="col-sm-3">
          <div sec:authorize="hasAuthority('ADMIN')" th:insert="fragments/menuAdmin.html"> </div>
-         <div sec:authorize="hasAuthority('VENDEDOR')"th:insert="fragments/menuVendedor.html"> </div>
-         <div sec:authorize="hasAuthority('USER')" th:insert="fragments/menuUser.html"> </div>
      </div>
      <div class="col-sm-9">
          <div sec:authorize="hasAuthority('ADMIN')" th:insert="fragments/contentAdmin.html"> </div>
-         <div sec:authorize="hasAuthority('VENDEDOR')" th:insert="fragments/contentVendedor.html"> </div>
-         <div sec:authorize="hasAuthority('USER')" th:insert="fragments/contentUser.html" > </div>
      </div>
 </section>
 <footer th:replace="layout/profileLayout::footerProfile"></footer>

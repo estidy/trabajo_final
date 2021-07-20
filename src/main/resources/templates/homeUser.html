@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http//www.w3.org/1999/xhtml"
+      xmlns:th="http//www.thymeleaf.org"
+      xmlns:sec="http//www.thymeleaf.org/extras/spring-segurity">
+<head th:replace="layout/profileLayout::headProfile"></head>
+<body>
+<header th:replace="layout/profileLayout::headerProfile"></header>
+<section class="bg-light py-4 row container-fluid">
+     <div class="col-sm-3">         
+         <div sec:authorize="hasAuthority('USER')"th:insert="fragments/menuUser.html"> </div>
+     </div>
+     <div class="col-sm-9">         
+         <div sec:authorize="hasAuthority('USER')" th:insert="fragments/contentUser.html"> </div>        
+     </div>
+</section>
+<footer th:replace="layout/profileLayout::footerProfile"></footer>
+</body>
+</html>

@@ -33,17 +33,49 @@ public class UserController {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
-	@GetMapping("/homeProfile")
-	public String homeProfile(Model model, @AuthenticationPrincipal User user) {
-		var title = "HomeProfile";
-		if (user.getAuthorities().size() > 1) {
-			title = "SelectRol";
+	@GetMapping("/controlProfile")
+	public String controlProfile(Model model, @AuthenticationPrincipal User user) {
+		var profiles = user.getAuthorities();
+		if (profiles.size() > 1) {
+			var title = "SelectRol";
 			model.addAttribute("title", title);
-			model.addAttribute("profiles", user.getAuthorities());
+			model.addAttribute("profiles", profiles);
 			return "selectProfile";
 		}
+		var profile = profiles.stream().findFirst().get().getAuthority();
+		if (profile.equals("ADMIN"))
+			return "redirect:/users/homeADMIN";
+		else if (profile.equals("VENDEDOR"))
+			return "redirect:/users/homeVENDEDOR";
+		else
+			return "redirect:/users/homeUSER";
+	}
+
+	@GetMapping("/homeADMIN")
+	public String homeADMIN(Model model, @AuthenticationPrincipal User user) {
+		var title = "HomeProfile";
+		var profile = "ADMIN";
 		model.addAttribute("title", title);
-		return "homeProfile";
+		model.addAttribute("profile", profile);
+		return "homeADMIN";
+	}
+
+	@GetMapping("/homeVENDEDOR")
+	public String homeVENDEDOR(Model model, @AuthenticationPrincipal User user) {
+		var title = "HomeProfile";
+		var profile = "VENDEDOR";
+		model.addAttribute("title", title);
+		model.addAttribute("profile", profile);
+		return "homeVENDEDOR";
+	}
+
+	@GetMapping("/homeUSER")
+	public String homeUSER(Model model, @AuthenticationPrincipal User user) {
+		var title = "HomeProfile";
+		var profile = "USER";
+		model.addAttribute("title", title);
+		model.addAttribute("profile", profile);
+		return "homeUSER";
 	}
 
 	@GetMapping("/abm_users")

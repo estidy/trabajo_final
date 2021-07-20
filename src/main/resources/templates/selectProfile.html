@@ -15,12 +15,12 @@
 <a th:href="@{/login}"><button type="button" class="btn btn-warning">Volver</button></a>
 	<div class="card cardLogin col-sm-6">
 	   <div class="card-header text-center">
-	        <h4>Usted cuanta con mas de un perfil</h4>
+	        <h4>Usted cuenta con mas de un perfil</h4>
 		    <h5>Seleccione el Perfil con el que desea ingresar</h5>
 	   </div>
 	   <div class="card-body"> 
             <div th:each="p : ${profiles}"  class="d-sm-flex-column list-group">
-				<a th:text="${p}"class="list-group-item list-group-item-action mx-auto"th:href="@{/users/homeAdmin}"><span>Comprar</span></a>
+				<a th:text="${p}"class="list-group-item list-group-item-action mx-auto"th:href="@{/users/home} + ${p}"></a>
 				
 	        </div>
 	   </div>
