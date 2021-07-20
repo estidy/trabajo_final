@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http//www.w3.org/1999/xhtml"
+      xmlns:th="http//www.thymeleaf.org"
+      xmlns:sec="http//www.thymeleaf.org/extras/spring-segurity">
+<head th:replace="layout/profileLayout::headProfile"></head>
+<body>
+<header class="container-fluid bg-header"> 
+	<div class="container text-center">
+        <div  th:insert="fragments/headerRow1.html" class="text-light d-sm-flex justify-content-center align-items-center" > </div>
+		<div th:insert="fragments/headerRow2.html" class="row text-center"> </div>
+    </div>
+</header>
+<section class="bg-light py-4 row container-fluid">
+<a th:href="@{/login}"><button type="button" class="btn btn-warning">Volver</button></a>
+	<div class="card cardLogin col-sm-6">
+	   <div class="card-header text-center">
+	        <h4>Usted cuanta con mas de un perfil</h4>
+		    <h5>Seleccione el Perfil con el que desea ingresar</h5>
+	   </div>
+	   <div class="card-body"> 
+            <div th:each="p : ${profiles}"  class="d-sm-flex-column list-group">
+				<a th:text="${p}"class="list-group-item list-group-item-action mx-auto"th:href="@{/users/homeAdmin}"><span>Comprar</span></a>
+				
+	        </div>
+	   </div>
+   </div>
+</section>
+<footer th:replace="layout/profileLayout::footerProfile"></footer>
+</body>
+</html>

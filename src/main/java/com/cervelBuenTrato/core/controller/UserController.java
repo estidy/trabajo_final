@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,8 +34,14 @@ public class UserController {
 	private BCryptPasswordEncoder passwordEncoder;
 
 	@GetMapping("/homeProfile")
-	public String homeProfile(Model model, @AuthenticationPrincipal Usr user) {
+	public String homeProfile(Model model, @AuthenticationPrincipal User user) {
 		var title = "HomeProfile";
+		if (user.getAuthorities().size() > 1) {
+			title = "SelectRol";
+			model.addAttribute("title", title);
+			model.addAttribute("profiles", user.getAuthorities());
+			return "selectProfile";
+		}
 		model.addAttribute("title", title);
 		return "homeProfile";
 	}
@@ -50,7 +57,6 @@ public class UserController {
 	@GetMapping("/addUser")
 	public String addUser(Usr user, Model model) {
 		var title = "AddUser";
-
 		model.addAttribute("title", title);
 		model.addAttribute("profiles", profileService.findAll());
 		return ("addUser");

@@ -13,28 +13,23 @@
 		<title th:text="${title}"></title>
 	</head>
 	<body>
-	  	<div id="containerProfile">
+	  	<div id="containerProfile" class="container-fluid">
 	  		<!-- BARRA DE NAVEGACION  -->
-			<header th:fragment="headerProfile"> 
-				<h1> header Profile</h1>
-				<div sec:authorize="isAuthenticated()">
-				     <i class="fas fa-user"></i>
-                     <span>Bievenido:</span>
-                     <span sec:authentication="name">Usuario</span>
-				   <form th:action="@{/login}" method="GET">
-                      <input type="submit" value="Salir"/>
-                   </form>
-                   <!-- <a href="<c:url value='/login'>">Logout</a>-->
+			<header th:fragment="headerProfile" class="container-fluid bg-header"> 
+			    <div class="container text-center">
+                     <div  th:insert="fragments/headerRow1.html" class="text-light d-sm-flex justify-content-center align-items-center" > </div>
+				     <div th:insert="fragments/headerRow2.html" class="row text-center"> </div>
                 </div>
+                <div th:insert="fragments/welcomeBar.html" class="bg-secondary " sec:authorize="isAuthenticated()"> </div>
 			</header>
 			<!-- CONTENIDO DINAMICO  -->
 			<main id="contentProfile">
 			</main>
 		</div>
 		<!-- PIE DE PAGINA  -->
-		<footer th:fragment="footerProfile">
+		<footer th:fragment="footerProfile" class="container-fluid bg-dark text-light">
 			<p>[[#{layoutIndex.textoFooterIndex}]] <a href="www.infoApp.com"></a> @InfoApp- 2021 </p>
-			<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+		    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 		</footer>
 	</body>
 </html>
