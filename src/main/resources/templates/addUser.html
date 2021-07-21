@@ -1,37 +1,53 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http//www.thymeleaf.org">
+<html lang="en"
+      xmlns="http//www.w3.org/1999/xhtml"
+      xmlns:th="http//www.thymeleaf.org"
+      xmlns:sec="http//www.thymeleaf.org/extras/spring-segurity">
 <head th:replace="layout/profileLayout::headProfile"></head>
 <body>
 <header th:replace="layout/profileLayout::headerProfile"></header>
-	<a th:href="@{/users/abm_users}">Volver</a>
-	<h1> DATOS DEL USUARIO</h1>
-	<form th:action="@{/users/saveUser}" method="POST" th:object="${usr}" class="was-validated">
-		<input type="hidden" name="id_user" th:field="*{id_user}"/>
-		<br/>
-		<label for="username">Nombre de Usuario:</label>
-		<input type="text" name="username" th:field="*{username}" required/>
-		<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:errorclass="errorfield"> Error Nombre</span>
-		<p th:if="${existUsername}" class="text-danger">El nombre de usuario ya existe</p>
-		<br/>
-		<label for="email">Email:</label>
-		<input type="text" name="email" th:field="*{email}" required/>
-		<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="errorfield"> Formato Incorrecto</span>
-		<p th:if="${existEmail}" class="text-danger">El Email Ya existe</p>
-		<br/>
-		<label for="password">Password:</label>
-		<input type="text" name="password" th:field="*{password}" required/>
-		<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="errorfield"> Error Password</span>
-		<br/>
-		<label for="phone">Phone:</label>
-		<input type="tel" name="phone" th:field="*{phone}"/>
-		<br/>
-		<label for="profiles">Roles:</label>
-		<select th:field="*{profiles}" multiple="multiple" id="profiles" name="profiles" required>		    
-		    <option th:each="p : ${profiles}" th:value="${p.id_profile}" th:text="${p.name}"> </option>
-		</select>
-		<br/>
-		<input type=submit name="Guardar"  value="Guardar"/>
-     </form>
+<section class="py-4 row mx-auto">
+     <div class="col-sm-2  mx-auto">
+         <div sec:authorize="hasAuthority('ADMIN')" th:insert="fragments/menuAdmin.html"> </div>
+     </div>
+     <div sec:authorize="hasAuthority('ADMIN')" class="col-sm-10 mx-auto">
+             <!-- <a href="javascript: history.go(-1)" onClick="javascript :history.back(-1);">Volver</a> -->
+             <div class="card">
+	              <div class="card-header text-center">
+		               <h3>DATOS DEL USUARIO</h3>
+	              </div>
+	              <div class="card-body"> 
+					  <form th:action="@{/users/saveUser}" method="POST" th:object="${usr}" class="was-validated">
+						<input type="hidden" name="id_user" th:field="*{id_user}"/>
+						<br/>
+						<label for="username">Nombre de Usuario:</label>
+						<input type="text" name="username" th:field="*{username}" required/>
+						<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:errorclass="errorfield"> Error Nombre</span>
+						<p th:if="${existUsername}" class="text-danger">El nombre de usuario ya existe</p>
+						<br/>
+						<label for="email">Email:</label>
+						<input type="text" name="email" th:field="*{email}" required/>
+						<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="errorfield"> Formato Incorrecto</span>
+						<p th:if="${existEmail}" class="text-danger">El Email Ya existe</p>
+						<br/>
+						<label for="password">Password:</label>
+						<input type="text" name="password" th:field="*{password}" required/>
+						<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="errorfield"> Error Password</span>
+						<br/>
+						<label for="phone">Phone:</label>
+						<input type="tel" name="phone" th:field="*{phone}"/>
+						<br/>
+						<label for="profiles">Roles:</label>
+						<select th:field="*{profiles}" multiple="multiple" id="profiles" name="profiles" required>		    
+						    <option th:each="p : ${profiles}" th:value="${p.id_profile}" th:text="${p.name}"> </option>
+						</select>
+						<br/>
+						<input type=submit name="Guardar"  value="Guardar"/>
+			         </form>
+	              </div>
+             </div>
+     </div>
+</section>
 <footer th:replace="layout/profileLayout::footerProfile"></footer>
 </body>
 </html>

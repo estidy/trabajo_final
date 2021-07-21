@@ -20,11 +20,11 @@
                      <div  th:insert="fragments/headerRow1.html" class="text-light d-sm-flex justify-content-center align-items-center" > </div>
 				     <div th:insert="fragments/headerRow2.html" class="row text-center"> </div>
                 </div>
-                <div th:insert="fragments/welcomeBar.html" class="bg-secondary " sec:authorize="isAuthenticated()"> </div>
+                <div th:insert="fragments/welcomeBar.html" sec:authorize="isAuthenticated()"> </div>
 			</header>
 			<!-- CONTENIDO DINAMICO  -->
-			<main id="contentProfile">
-			</main>
+			<section id="contentProfile" class="container-fluid bg-success">
+			</section>
 		</div>
 		<!-- PIE DE PAGINA  -->
 		<footer th:fragment="footerProfile" class="container-fluid bg-dark text-light">

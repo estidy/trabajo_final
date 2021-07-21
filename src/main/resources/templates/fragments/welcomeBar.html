@@ -1,16 +1,16 @@
-<div class="row container text-light">
-	<div class="col-sm-4 d-sm-flex justify-content-around bg-success">
+<div class="row text-light bg-secondary">
+	<div class="col-sm-3 d-sm-flex">
 	       <div><i class="fas fa-home fa-2x"></i></div>
 	       <div><i class="fas fa-tools fa-2x"></i></div>
 	</div>
-	<div class="col-sm-8 d-sm-flex align-items-center justify-content-end">
+	<div class="col-sm-9 d-sm-flex align-items-center justify-content-end">
 			<div>
 				<span><i class="fas fa-user fa-lg"></i></span>
 			    <span> Bievenido: </span>
 			    <span sec:authentication="name">Usuario</span>
 			</div>
-		    <div >
-		       Roles: <span sec:authentication="principal.authorities">NOT FOUND</span>
+		    <div class="mx-4">
+		       Rol: <span th:text="${profile}">NOT FOUND</span>
 		    </div> 
 		    <div class="align-content-end">
 				<form th:action="@{/login}" method="GET">

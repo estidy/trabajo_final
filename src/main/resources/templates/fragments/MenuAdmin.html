@@ -1,86 +1,93 @@
-<div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        ROLES
-      </button>
-    </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-       <div class="accordion-body d-sm-flex-column list-group">
-			<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Nuevo Rol</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Listado</span></a>
-	    </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        USUARIOS
-      </button>
-    </h2>
-    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-         <div class="accordion-body d-sm-flex-column list-group">
-			<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Nuevo Usuario</span></a>
-			<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Buscar Usuario</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Listado</span></a>
-	      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        PRODUCTOS
-      </button>
-    </h2>
-    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-       <div class="accordion-body d-sm-flex-column list-group">
-			<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Nuevo Producto</span></a>
-			<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Buscar Producto</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Listado</span></a>
-	   </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingFour">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-        PROMOCIONES
-      </button>
-    </h2>
-    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-       <div class="accordion-body d-sm-flex-column list-group">
-			<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Nueva Promocion</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Buscar Promocion</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Promociones del Dia</span></a>
-	   </div>
-    </div>
-   </div>
-    <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingFive">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-        PEDIDOS
-      </button>
-    </h2>
-    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-       <div class="accordion-body d-sm-flex-column list-group">
-			<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Nuevo Pedido</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Buscar Pedido</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Pedidos del Dia</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Listado</span></a>
-	   </div>
-    </div>
-  </div>
-      <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingSix">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
-        REPORTES
-      </button>
-    </h2>
-    <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
-       <div class="accordion-body d-sm-flex-column list-group">
-			<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Productos Mas Vendidos</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>medio de Pago mas Usado</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Destinos de Delivery</span></a>
-	   </div>
-    </div>
-  </div>
+<div class="card">
+	<div class="card-header text-center">
+		<h5>MENU</h5>
+	</div>
+	<div class="card-body"> 
+		<div class="accordion accordion-flush" id="accordionFlushExample">
+		  <div class="accordion-item">
+		    <h2 class="accordion-header" id="flush-headingOne">
+		      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+		        ROLES
+		      </button>
+		    </h2>
+		    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+		       <div class="accordion-body d-sm-flex-column list-group">
+					<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Nuevo Rol</span></a>
+					<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Listado</span></a>
+			    </div>
+		    </div>
+		  </div>
+		  <div class="accordion-item">
+		    <h2 class="accordion-header" id="flush-headingTwo">
+		      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+		        USUARIOS
+		      </button>
+		    </h2>
+		    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+		         <div class="accordion-body d-sm-flex-column list-group">
+					<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Nuevo Usuario</span></a>
+					<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Buscar Usuario</span></a>
+					<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Listado</span></a>
+			      </div>
+		    </div>
+		  </div>
+		  <div class="accordion-item">
+		    <h2 class="accordion-header" id="flush-headingThree">
+		      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+		        PRODUCTOS
+		      </button>
+		    </h2>
+		    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+		       <div class="accordion-body d-sm-flex-column list-group">
+					<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Nuevo Producto</span></a>
+					<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Buscar Producto</span></a>
+					<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Listado</span></a>
+			   </div>
+		    </div>
+		  </div>
+		  <div class="accordion-item">
+		    <h2 class="accordion-header" id="flush-headingFour">
+		      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+		        PROMOCIONES
+		      </button>
+		    </h2>
+		    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+		       <div class="accordion-body d-sm-flex-column list-group">
+					<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Nueva Promocion</span></a>
+					<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Buscar Promocion</span></a>
+					<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Promociones del Dia</span></a>
+			   </div>
+		    </div>
+		   </div>
+		    <div class="accordion-item">
+		    <h2 class="accordion-header" id="flush-headingFive">
+		      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+		        PEDIDOS
+		      </button>
+		    </h2>
+		    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+		       <div class="accordion-body d-sm-flex-column list-group">
+					<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Nuevo Pedido</span></a>
+					<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Buscar Pedido</span></a>
+					<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Pedidos del Dia</span></a>
+					<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Listado</span></a>
+			   </div>
+		    </div>
+		  </div>
+		      <div class="accordion-item">
+		    <h2 class="accordion-header" id="flush-headingSix">
+		      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+		        REPORTES
+		      </button>
+		    </h2>
+		    <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+		       <div class="accordion-body d-sm-flex-column list-group">
+					<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Productos Mas Vendidos</span></a>
+					<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>medio de Pago mas Usado</span></a>
+					<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Destinos de Delivery</span></a>
+			   </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
 </div>

@@ -1,5 +1,6 @@
 package com.cervelBuenTrato.core.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class UserController {
 
 	@GetMapping("/controlProfile")
 	public String controlProfile(Model model, @AuthenticationPrincipal User user) {
+		/* User user = ((MyUserPrincipal) this.getPrincipal()).getUser(); */
 		var profiles = user.getAuthorities();
 		if (profiles.size() > 1) {
 			var title = "SelectRol";
@@ -52,45 +54,47 @@ public class UserController {
 	}
 
 	@GetMapping("/homeADMIN")
-	public String homeADMIN(Model model, @AuthenticationPrincipal User user) {
+	public String homeADMIN(Model model, @AuthenticationPrincipal User user, HttpSession session) {
 		var title = "HomeProfile";
-		var profile = "ADMIN";
+		session.setAttribute("actualProfile", "ADMIN");
 		model.addAttribute("title", title);
-		model.addAttribute("profile", profile);
+		model.addAttribute("profile", session.getAttribute("actualProfile"));
 		return "homeADMIN";
 	}
 
 	@GetMapping("/homeVENDEDOR")
-	public String homeVENDEDOR(Model model, @AuthenticationPrincipal User user) {
+	public String homeVENDEDOR(Model model, @AuthenticationPrincipal User user, HttpSession session) {
 		var title = "HomeProfile";
-		var profile = "VENDEDOR";
+		session.setAttribute("actualProfile", "VENDEDOR");
 		model.addAttribute("title", title);
-		model.addAttribute("profile", profile);
+		model.addAttribute("profile", session.getAttribute("actualProfile"));
 		return "homeVENDEDOR";
 	}
 
 	@GetMapping("/homeUSER")
-	public String homeUSER(Model model, @AuthenticationPrincipal User user) {
+	public String homeUSER(Model model, @AuthenticationPrincipal User user, HttpSession session) {
 		var title = "HomeProfile";
-		var profile = "USER";
+		session.setAttribute("actualProfile", "USER");
 		model.addAttribute("title", title);
-		model.addAttribute("profile", profile);
+		model.addAttribute("profile", session.getAttribute("actualProfile"));
 		return "homeUSER";
 	}
 
 	@GetMapping("/abm_users")
-	public String index(Model model) {
+	public String index(Model model, HttpSession session) {
 		var title = "ABM-Users";
 		model.addAttribute("title", title);
 		model.addAttribute("users", userService.findAll());
+		model.addAttribute("profile", session.getAttribute("actualProfile"));
 		return "abm_users";
 	}
 
 	@GetMapping("/addUser")
-	public String addUser(Usr user, Model model) {
+	public String addUser(Usr user, Model model, HttpSession session) {
 		var title = "AddUser";
 		model.addAttribute("title", title);
 		model.addAttribute("profiles", profileService.findAll());
+		model.addAttribute("profile", session.getAttribute("actualProfile"));
 		return ("addUser");
 	}
 
@@ -132,13 +136,13 @@ public class UserController {
 	}
 
 	@GetMapping("/editUser/{id_user}")
-	public String editUser(Usr user, Model model) {
+	public String editUser(Usr user, Model model, HttpSession session) {
 		var title = "EditUser";
 		user = userService.findById(user).get();
 		model.addAttribute("title", title);
 		model.addAttribute("profiles", profileService.findAll());
+		model.addAttribute("profile", session.getAttribute("actualProfile"));
 		model.addAttribute("usr", user);
-
 		return "addUser";
 	}
 

@@ -32,7 +32,7 @@ public class Usr implements Serializable {
 	@NotEmpty
 	private String username;
 	@NotEmpty
-	@Column(length = 128)
+	@Column(length = 255)
 	private String password;
 	@Column(length = 50, unique = true, nullable = false)
 	@NotEmpty
