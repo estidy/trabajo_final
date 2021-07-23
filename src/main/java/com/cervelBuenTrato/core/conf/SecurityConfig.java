@@ -43,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable().authorizeRequests().antMatchers("/", "/index", "/login", "/register").permitAll()
 				.antMatchers("/homeADMIN/**").hasRole("ADMIN").and().formLogin().loginPage("/login")
 				.defaultSuccessUrl("/users/controlProfile", true).failureUrl("/loginError").and().logout()
-				.deleteCookies("JSESSIONID").logoutSuccessUrl("/login");
+				.logoutSuccessUrl("/login").invalidateHttpSession(true).deleteCookies("JSESSIONID");
 	}
 
 }

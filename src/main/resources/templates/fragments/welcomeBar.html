@@ -1,6 +1,6 @@
 <div class="row text-light bg-secondary">
-	<div class="col-sm-3 d-sm-flex">
-	       <div><i class="fas fa-home fa-2x"></i></div>
+	<div class="col-sm-3 d-sm-flex justify-content-around">
+	       <div> <a th:href="@{${homeProfile}}"><i class="fas fa-home fa-2x"></i></a></div>
 	       <div><i class="fas fa-tools fa-2x"></i></div>
 	</div>
 	<div class="col-sm-9 d-sm-flex align-items-center justify-content-end">
@@ -13,7 +13,7 @@
 		       Rol: <span th:text="${profile}">NOT FOUND</span>
 		    </div> 
 		    <div class="align-content-end">
-				<form th:action="@{/login}" method="GET">
+				<form th:action="@{/logout}" method="GET">
 			    <input type="submit" value="Salir" class="btn btn-warning"/>
 			    </form>
 		    </div>

@@ -10,6 +10,8 @@
 	    <link rel="stylesheet" th:href="@{/css/styles.css}">
 	    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 	    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+	    <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 		<title th:text="${title}"></title>
 	</head>
 	<body>
@@ -29,7 +31,6 @@
 		<!-- PIE DE PAGINA  -->
 		<footer th:fragment="footerProfile" class="container-fluid bg-dark text-light">
 			<p>[[#{layoutIndex.textoFooterIndex}]] <a href="www.infoApp.com"></a> @InfoApp- 2021 </p>
-		    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 		</footer>
 	</body>
 </html>

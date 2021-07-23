@@ -56,27 +56,39 @@ public class UserController {
 	@GetMapping("/homeADMIN")
 	public String homeADMIN(Model model, @AuthenticationPrincipal User user, HttpSession session) {
 		var title = "HomeProfile";
-		session.setAttribute("actualProfile", "ADMIN");
+		if (session.getAttribute("actualProfile") == null)
+			session.setAttribute("actualProfile", "ADMIN");
+		if (session.getAttribute("homeProfile") == null)
+			session.setAttribute("homeProfile", "/users/homeADMIN");
 		model.addAttribute("title", title);
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
+		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
 		return "homeADMIN";
 	}
 
 	@GetMapping("/homeVENDEDOR")
 	public String homeVENDEDOR(Model model, @AuthenticationPrincipal User user, HttpSession session) {
 		var title = "HomeProfile";
-		session.setAttribute("actualProfile", "VENDEDOR");
+		if (session.getAttribute("actualProfile") == null)
+			session.setAttribute("actualProfile", "VENDEDOR");
+		if (session.getAttribute("homeProfile") == null)
+			session.setAttribute("homeProfile", "/users/homeVENDEDOR");
 		model.addAttribute("title", title);
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
+		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
 		return "homeVENDEDOR";
 	}
 
 	@GetMapping("/homeUSER")
 	public String homeUSER(Model model, @AuthenticationPrincipal User user, HttpSession session) {
 		var title = "HomeProfile";
-		session.setAttribute("actualProfile", "USER");
+		if (session.getAttribute("actualProfile") == null)
+			session.setAttribute("actualProfile", "USER");
+		if (session.getAttribute("homeProfile") == null)
+			session.setAttribute("homeProfile", "/users/homeUSER");
 		model.addAttribute("title", title);
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
+		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
 		return "homeUSER";
 	}
 
@@ -86,6 +98,7 @@ public class UserController {
 		model.addAttribute("title", title);
 		model.addAttribute("users", userService.findAll());
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
+		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
 		return "abm_users";
 	}
 
@@ -95,6 +108,7 @@ public class UserController {
 		model.addAttribute("title", title);
 		model.addAttribute("profiles", profileService.findAll());
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
+		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
 		return ("addUser");
 	}
 
@@ -142,6 +156,7 @@ public class UserController {
 		model.addAttribute("title", title);
 		model.addAttribute("profiles", profileService.findAll());
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
+		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
 		model.addAttribute("usr", user);
 		return "addUser";
 	}
@@ -150,6 +165,25 @@ public class UserController {
 	public String deleteUser(Usr user) {
 		userService.deleteById(user);
 		return "redirect:/users/abm_users";
+	}
+
+	@GetMapping("/findUser")
+	public String findUser(Usr user, Model model, HttpSession session) {
+		var title = "FindUser";
+		model.addAttribute("title", title);
+		model.addAttribute("profile", session.getAttribute("actualProfile"));
+		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
+		return ("findUser");
+	}
+
+	@GetMapping("/formFindUserByEmail")
+	public String formFindUserByEmail() {
+		return ("formFindUserByEmail");
+	}
+
+	@GetMapping("/formFindUserByUsername")
+	public String formFindUserByUsername() {
+		return ("formFindUserByUsername");
 	}
 
 }
