@@ -1,0 +1,32 @@
+<div th:if="${user != null}" class="my-4">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">NOMBRE USUARIO</th>
+				<th scope="col">ROL/ES</th>
+				<th scope="col">EMAIL</th>
+				<th scope="col">TELEFONO</th>
+				<th scope="col">ACCIONES</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td th:text="${user.username}"></td>
+				<td> 
+				<div th:each="p : ${user.profiles}"  class="d-flex-column">
+			          <p th:text="${p.name}" class="mx-auto"></p>
+			    </div>
+	            </td>
+				<td th:text="${user.email}"></td>  
+				<td th:text="${user.phone}"></td>
+				<td>
+				    <a th:href="@{/users/editUser/} + ${user.id_user}"><button type="button" class="btn btn-warning"> <i class="fas fa-edit"> VER</i></button></a>
+                    <a th:href="@{/users/UserPurchases(id_user=${user.id_user})}"><button type="button" class="btn btn-warning"><i class="fas fa-shopping-cart"> COMPRAS</i></button> </a> 
+                </td>
+		    </tr>  
+		</tbody>
+	</table>
+</div>
+<div th:if="${user == null}">
+	<p> No se encontró al usuario </p>
+</div>

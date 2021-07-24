@@ -68,12 +68,12 @@ public class UserService implements UserDetailsService {
 	}
 
 	@Transactional(readOnly = true)
-	public boolean findByEmail(String email) {
-		return (((userRepository.findByEmail(email)) != null) ? true : false);
+	public Usr findByEmail(String email) {
+		return (userRepository.findByEmail(email));
 	}
 
 	@Transactional(readOnly = true)
-	public boolean findByUsername(String username) {
-		return (((userRepository.findByUsername(username)) != null) ? true : false);
+	public Usr findByUsername(String username) {
+		return (userRepository.findByUsername(username));
 	}
 }

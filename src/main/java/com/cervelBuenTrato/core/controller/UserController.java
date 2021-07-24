@@ -13,6 +13,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cervelBuenTrato.core.model.Profile;
 import com.cervelBuenTrato.core.model.Usr;
@@ -115,9 +116,9 @@ public class UserController {
 	@PostMapping("/saveUser")
 	public String saveUser(@Valid Usr user, Errors errors, Model model) {
 		if (errors.hasErrors()) {
-			if (userService.findByUsername(user.getUsername()))
+			if (userService.findByUsername(user.getUsername()) != null)
 				model.addAttribute("existUsername", true);
-			if (userService.findByEmail(user.getEmail()))
+			if (userService.findByEmail(user.getEmail()) != null)
 				model.addAttribute("existEmail", true);
 			model.addAttribute("profiles", profileService.findAll());
 			return ("addUser");
@@ -131,9 +132,9 @@ public class UserController {
 	@PostMapping("/saveNewUser")
 	public String saveNewUser(@Valid Usr user, Errors errors, Model model) {
 		if (errors.hasErrors()) {
-			if (userService.findByUsername(user.getUsername()))
+			if (userService.findByUsername(user.getUsername()) != null)
 				model.addAttribute("existUsername", true);
-			if (userService.findByEmail(user.getEmail()))
+			if (userService.findByEmail(user.getEmail()) != null)
 				model.addAttribute("existEmail", true);
 			var text = "volver";
 			var link = "/login";
@@ -186,4 +187,15 @@ public class UserController {
 		return ("formFindUserByUsername");
 	}
 
+	@GetMapping("/findUserByEmail")
+	public String findUserByEmail(@RequestParam(value = "email") String email, Model model) {
+		model.addAttribute("user", userService.findByEmail(email));
+		return "findUserResult";
+	}
+
+	@GetMapping("/findUserByUsername")
+	public String findUserByUsername(@RequestParam(value = "username") String username, Model model) {
+		model.addAttribute("user", userService.findByUsername(username));
+		return "findUserResult";
+	}
 }

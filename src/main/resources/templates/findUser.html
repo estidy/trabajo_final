@@ -35,6 +35,7 @@
 						</div>
 				       </div>
 					   <div class="row" id="formFindUser"></div>
+
 	              </div>
              </div>
      </div>
@@ -66,14 +67,6 @@ $(document).ready(function(){
     $("#defaultCheck2").prop("checked", false);
     $("#defaultCheck2").attr("disabled", false);
     $("#formFindUser").hide();
-  });
-  $("#prueba").click(function(){
-    $.ajax({
-            url : 'formFindUserByEmail',
-            success : function(data) {
-            $('#formFindUser').html(data);
-            }
-    });
   });
 });
 </script>

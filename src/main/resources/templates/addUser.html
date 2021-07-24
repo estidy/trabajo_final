@@ -46,8 +46,9 @@
 								<option th:each="p : ${profiles}" th:value="${p.id_profile}" th:text="${p.name}"> </option>
 							</select>
 						  </div>
-						  <div class="col-12">
-						    <input type=submit name="Guardar" class="btn btn-warning" value="Guardar"/>
+						  <div class="col-12 d-md-flex justify-content-around">
+						    <input type=submit name="Guardar" class="btn btn-warning" value="Guardar"/>				    
+						     <a th:href="@{/users/abm_users}"><button th:text="Volver" type="button" class="btn btn-warning"></button></a>
 						  </div>
 						</form>
 	              </div>
