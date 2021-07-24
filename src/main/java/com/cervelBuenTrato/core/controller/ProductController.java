@@ -1,5 +1,6 @@
 package com.cervelBuenTrato.core.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cervelBuenTrato.core.model.Beer;
 import com.cervelBuenTrato.core.model.Product;
+import com.cervelBuenTrato.core.model.Snack;
 import com.cervelBuenTrato.core.services.ProductService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -31,11 +34,31 @@ public class ProductController {
 		return "abm_products";
 	}
 
-	@GetMapping("/addProd")
-	public String addUser(Product prod, Model model) {
-		var title = "AddProd";
+	@GetMapping("/selectProd")
+	public String selectProd(Model model, HttpSession session) {
+		var title = "SelectProd";
 		model.addAttribute("title", title);
-		return ("addProd");
+		model.addAttribute("profile", session.getAttribute("actualProfile"));
+		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
+		return ("selectProd");
+	}
+
+	@GetMapping("/addProdTypeBeer")
+	public String addProdTypeBeer(Beer beer, Model model, HttpSession session) {
+		var title = "AddBeer";
+		model.addAttribute("title", title);
+		model.addAttribute("profile", session.getAttribute("actualProfile"));
+		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
+		return ("addProdTypeBeer");
+	}
+
+	@GetMapping("/addProdTypeSnack")
+	public String addProdTypeSnack(Snack snack, Model model, HttpSession session) {
+		var title = "AddSnack";
+		model.addAttribute("title", title);
+		model.addAttribute("profile", session.getAttribute("actualProfile"));
+		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
+		return ("addProdTypeSnack");
 	}
 
 	@PostMapping("/saveProd")
@@ -61,4 +84,5 @@ public class ProductController {
 		productService.deleteById(prod);
 		return "redirect:/products/abm_products";
 	}
+
 }

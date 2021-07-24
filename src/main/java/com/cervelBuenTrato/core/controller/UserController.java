@@ -169,7 +169,7 @@ public class UserController {
 	}
 
 	@GetMapping("/findUser")
-	public String findUser(Usr user, Model model, HttpSession session) {
+	public String findUser(Model model, HttpSession session) {
 		var title = "FindUser";
 		model.addAttribute("title", title);
 		model.addAttribute("profile", session.getAttribute("actualProfile"));

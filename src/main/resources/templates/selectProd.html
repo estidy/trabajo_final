@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http//www.w3.org/1999/xhtml"
+      xmlns:th="http//www.thymeleaf.org"
+      xmlns:sec="http//www.thymeleaf.org/extras/spring-segurity">
+<head th:replace="layout/profileLayout::headProfile"></head>
+<body>
+<header th:replace="layout/profileLayout::headerProfile"></header>
+<section class="py-4 row mx-auto">
+     <div class="col-sm-2  mx-auto">
+         <div sec:authorize="hasAuthority('ADMIN')" th:insert="fragments/menuAdmin.html"> </div>
+     </div>
+     <div sec:authorize="hasAuthority('ADMIN')" class="col-sm-10 mx-auto">
+             <!-- <a href="javascript: history.go(-1)" onClick="javascript :history.back(-1);">Volver</a> -->
+          <div class="card mx-auto">
+             <div class="card-header text-center">
+		               <h3>Ingrese el tipo de producto que desea agregar</h3>
+	         </div>
+	         <div class="card-body d-sm-flex justify-content-around"> 
+	             <div class="card" style="width: 18rem;">
+					  <img src="/images/beer.jpg" class="card-img-top" alt="Agregar Nueva Cerveza">
+					  <div class="card-body">
+					    <h5 class="card-title">Cerveza</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a th:href="@{/products/addProdTypeBeer}" class="btn btn-primary">AGREGAR</a>
+					  </div>
+				 </div>
+			     <div class="card" style="width: 18rem;">
+					  <img src="/images/snack.jpg" class="card-img-top" alt="Agregar nuevo Snack">
+					  <div class="card-body">
+					    <h5 class="card-title">Snack</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a th:href="@{/products/addProdTypeSnack}" class="btn btn-primary">AGREGAR</a>
+					  </div>
+				 </div>
+			 </div>
+	     </div>
+     </div>
+</section>
+<footer th:replace="layout/profileLayout::footerProfile"></footer>
+</body>
+</html>
