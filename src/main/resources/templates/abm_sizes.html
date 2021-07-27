@@ -11,41 +11,33 @@
              <!-- <a href="javascript: history.go(-1)" onClick="javascript :history.back(-1);">Volver</a> -->
              <div class="card">
 	              <div class="card-header text-center">
-		               <h3>LISTADO DE USUARIOS</h3>
+		               <h3>LISTADO</h3>
 	              </div>
 	              <div class="card-body"> 
-	                 <div th:if="${users != null and !users.empty}" class="my-4">
+	                 <div th:if="${sizes != null and !sizes.empty}" class="my-4">
 			            <table class="table">
 		                   <thead>
 		                     <tr>
 							      <th scope="col">#</th>
-							      <th scope="col">NOMBRE USUARIO</th>
-							      <th scope="col">ROL/ES</th>
-							      <th scope="col">EMAIL</th>
-							      <th scope="col">TELEFONO</th>
+							      <th scope="col">GRAMOS</th>
+							      <th scope="col">DESCRIPCION</th>
 							      <th scope="col">EDITAR</th>
 							      <th scope="col">ELIMINAR</th>
 							 </tr>
 		                  </thead>
 		                  <tbody>
-						    <tr th:each="u,iterator : ${users}" >
+						    <tr th:each="s,iterator : ${sizes}" >
 							      <td scope="row" th:text="${iterator.index+1}"></td>
-								  <td th:text="${u.username}"></td>
-								  <td> 
-								     <div th:each="p : ${u.profiles}"  class="d-flex-column">
-			                             <p th:text="${p.name}" class="mx-auto"></p>
-			                         </div>
-	                              </td>
-								  <td th:text="${u.email}"></td>  
-								  <td th:text="${u.phone}"></td>
-								  <td> <a th:href="@{/users/editUser/} + ${u.id_user}"><button type="button" class="btn btn-warning"><i class="far fa-edit"></i> </button></a> </td>
-								  <td> <a th:href="@{/users/deleteUser(id_user=${u.id_user})}"><button type="button" class="btn btn-warning"><i class="far fa-trash-alt"></i> </button> </a> </td>
+								  <td th:text="${s.grams}"></td> 
+								  <td th:text="${s.description}"></td>
+								  <td> <a th:href="@{/sizes/editSize/} + ${s.id_size}"><button type="button" class="btn btn-danger"><i class="far fa-edit"></i> </button></a> </td>
+								  <td> <a th:href="@{/sizes/deleteSize(id_size=${s.id_size})}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i> </button> </a> </td>
 							  </tr>  
 		                  </tbody>
 		               </table>
 	                 </div>
-					 <div th:if="${users == null or users.empty}">
-						<p> La Lista de usuarios esta vacia </p>
+					 <div th:if="${sizes == null or sizes.empty}">
+						<p> La Lista esta vacia </p>
 					 </div>
 	            </div>
             </div>

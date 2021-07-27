@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http//www.w3.org/1999/xhtml"
+      xmlns:th="http//www.thymeleaf.org"
+      xmlns:sec="http//www.thymeleaf.org/extras/spring-segurity">
+<head th:replace="layout/profileLayout::headProfile"></head>
+<body>
+<header th:replace="layout/profileLayout::headerProfile"></header>
+<section class="py-4 row mx-auto">
+     <div sec:authorize="hasAuthority('ADMIN')" class="container mx-auto">
+             <!-- <a href="javascript: history.go(-1)" onClick="javascript :history.back(-1);">Volver</a> -->
+             <div class="card">
+	              <div class="card-header text-center">
+		               <h3>DATOS</h3>
+	              </div>
+	              <div class="card-body"> 
+					  <form th:action="@{/sizes/saveSize}" method="POST" th:object="${size}" class="row g-3">
+						 <input type="hidden" name="id_size" th:field="*{id_size}"/>
+						  <div class="col-md-6">
+						       <label for="grams" class="form-label">Gramos:</label>
+                               <div class="input-group">							
+						          <input type="number" name="grams" th:field="*{grams}" min="0" class="form-control" aria-describedby="basic-addon2">
+						          <span class="input-group-text" id="basic-addon2">Grs</span>
+						       </div>
+						  </div>
+						  <div class="col-md-6">
+						    <label for="description" class="form-label">Descripcion:</label>
+							<input type="text" name="description" th:field="*{description}" class="form-control"/>
+						  </div>
+						  <div class="col-12 d-md-flex justify-content-around">
+						    <input type=submit name="Guardar" class="btn btn-danger" value="Guardar"/>				    
+						     <a th:href="@{/sizes/abm_sizes}"><button th:text="Volver" type="button" class="btn btn-danger"></button></a>
+						  </div>
+						</form>
+	              </div>
+             </div>
+     </div>
+</section>
+<footer th:replace="layout/profileLayout::footerProfile"></footer>
+</body>
+</html>

@@ -22,15 +22,16 @@
                      <div  th:insert="fragments/headerRow1.html" class="text-light d-sm-flex justify-content-center align-items-center" > </div>
 				     <div th:insert="fragments/headerRow2.html" class="row text-center"> </div>
                 </div>
-                <div th:insert="fragments/welcomeBar.html" sec:authorize="isAuthenticated()"> </div>
+                <div th:insert=${menu}></div>                   
 			</header>
 			<!-- CONTENIDO DINAMICO  -->
 			<section id="contentProfile" class="container-fluid bg-success">
 			</section>
 		</div>
 		<!-- PIE DE PAGINA  -->
-		<footer th:fragment="footerProfile" class="container-fluid bg-dark text-light">
-			<p>[[#{layoutIndex.textoFooterIndex}]] <a href="www.infoApp.com"></a> @InfoApp- 2021 </p>
+		<footer th:fragment="footerProfile" class="container-fluid bg-dark text-light text-center">
+			<div th:insert="fragments/footerIndexRow1.html" class="row d-sm-flex text-center"> </div>
+		    <div th:insert="fragments/footerIndexRow2.html" class="row text-center text-light">	</div>
 		</footer>
 	</body>
 </html>

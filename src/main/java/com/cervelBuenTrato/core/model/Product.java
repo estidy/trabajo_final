@@ -1,16 +1,16 @@
 package com.cervelBuenTrato.core.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.Lob;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -28,17 +28,16 @@ public abstract class Product implements Serializable {
 	@Column(length = 50)
 	@NotEmpty
 	private String name;
-	@Column(length = 50)
+	@Lob
 	private String description;
+	@NotNull
 	private Integer stock_min;
-	@NotEmpty
+	@NotNull
 	private Integer stock_actual;
-	@NotEmpty
+	@NotNull
 	private Double price;
-	@NotEmpty
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Date expiration;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate expiration;
 	private String measure;
 	private Integer margin_gain;
 

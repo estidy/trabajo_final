@@ -1,42 +1,47 @@
-<div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        PEDIDOS
-      </button>
-    </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-       <div class="accordion-body d-sm-flex-column list-group">
-			<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Cargar Pedido</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Buscar Pedido</span></a>
-	    <a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Pedidos del Dia</span></a>
-	    </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        PROMOCIONES
-      </button>
-    </h2>
-    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-         <div class="accordion-body d-sm-flex-column list-group">
-			<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Promociones del dia</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Listado</span></a>
-	      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        PRODUCTOS
-      </button>
-    </h2>
-    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-       <div class="accordion-body d-sm-flex-column list-group">
-			<a class="list-group-item list-group-item-action mx-auto"th:href="@{/users/addUser}"><span>Ver Stock de Productos</span></a>
-			<a class="list-group-item list-group-item-action mx-auto" th:href="@{/users/abm_users}"><span>Listado</span></a>
-	   </div>
-    </div>
-  </div>
+<div class="row">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <div class="container-fluid">
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+		      <a class="navbar-brand" th:href="@{/users/homeVENDEDOR}"><i class="fas fa-home fa-2x"></i></a>
+		      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+		        <li class="nav-item dropdown">
+		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		            PRODUCTOS
+		          </a>
+		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		            <li><a class="dropdown-item" href="#">Ver Stock de Productos</a></li>
+		            <li><a class="dropdown-item" href="#">Buscar</a></li>
+		            <li><a class="dropdown-item" href="#">Listado</a></li>
+		          </ul>
+		        </li>
+		        <li class="nav-item dropdown">
+		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		            PROMOCIONES
+		          </a>
+		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		            <li><a class="dropdown-item" href="#">Agregar</a></li>
+		            <li><a class="dropdown-item" href="#">Buscar</a></li>
+		            <li><a class="dropdown-item" href="#">Listado</a></li>
+		            <li><a class="dropdown-item" href="#">Promociones del D&iacute;a</a></li>
+		          </ul>
+		        </li>
+		        <li class="nav-item dropdown">
+		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		            PEDIDOS
+		          </a>
+		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		            <li><a class="dropdown-item" href="#">Agregar</a></li>
+		            <li><a class="dropdown-item" href="#">Buscar</a></li>
+		            <li><a class="dropdown-item" href="#">Listado</a></li>
+		            <li><a class="dropdown-item" href="#">Pedidos del D&iacute;a</a></li>
+		          </ul>
+		        </li>		        
+		      </ul>
+		     <div sec:authorize="isAuthenticated()" th:insert="fragments/welcomeUser.html" class="d-sm-flex align-items-center justify-content-end"></div> 		      
+		    </div>
+		  </div>
+</nav>
 </div>

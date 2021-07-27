@@ -1,5 +1,7 @@
 package com.cervelBuenTrato.core.controller;
 
+import java.time.LocalDate;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -59,11 +61,11 @@ public class UserController {
 		var title = "HomeProfile";
 		if (session.getAttribute("actualProfile") == null)
 			session.setAttribute("actualProfile", "ADMIN");
-		if (session.getAttribute("homeProfile") == null)
-			session.setAttribute("homeProfile", "/users/homeADMIN");
+		if (session.getAttribute("menu") == null)
+			session.setAttribute("menu", "fragments/menuAdmin.html");
 		model.addAttribute("title", title);
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
-		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
+		model.addAttribute("menu", session.getAttribute("menu"));
 		return "homeADMIN";
 	}
 
@@ -72,11 +74,12 @@ public class UserController {
 		var title = "HomeProfile";
 		if (session.getAttribute("actualProfile") == null)
 			session.setAttribute("actualProfile", "VENDEDOR");
-		if (session.getAttribute("homeProfile") == null)
-			session.setAttribute("homeProfile", "/users/homeVENDEDOR");
+		if (session.getAttribute("menu") == null)
+			session.setAttribute("menu", "fragments/menuVendedor.html");
+		;
 		model.addAttribute("title", title);
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
-		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
+		model.addAttribute("menu", session.getAttribute("menu"));
 		return "homeVENDEDOR";
 	}
 
@@ -85,11 +88,11 @@ public class UserController {
 		var title = "HomeProfile";
 		if (session.getAttribute("actualProfile") == null)
 			session.setAttribute("actualProfile", "USER");
-		if (session.getAttribute("homeProfile") == null)
-			session.setAttribute("homeProfile", "/users/homeUSER");
+		if (session.getAttribute("menu") == null)
+			session.setAttribute("menu", "fragments/menuUser.html");
 		model.addAttribute("title", title);
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
-		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
+		model.addAttribute("menu", session.getAttribute("menu"));
 		return "homeUSER";
 	}
 
@@ -99,7 +102,7 @@ public class UserController {
 		model.addAttribute("title", title);
 		model.addAttribute("users", userService.findAll());
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
-		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
+		model.addAttribute("menu", session.getAttribute("menu"));
 		return "abm_users";
 	}
 
@@ -109,7 +112,7 @@ public class UserController {
 		model.addAttribute("title", title);
 		model.addAttribute("profiles", profileService.findAll());
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
-		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
+		model.addAttribute("menu", session.getAttribute("menu"));
 		return ("addUser");
 	}
 
@@ -125,6 +128,10 @@ public class UserController {
 		}
 		var pass = user.getPassword();
 		user.setPassword(passwordEncoder.encode(pass));
+		if (user.getDate_account() == null) {
+			LocalDate date = LocalDate.now();
+			user.setDate_account(date);
+		}
 		userService.save(user);
 		return "redirect:/users/abm_users";
 	}
@@ -146,6 +153,10 @@ public class UserController {
 		user.setPassword(passwordEncoder.encode(pass));
 		Profile profile = profileService.findByName("USER");
 		user.addUserProfile(profile);
+		if (user.getDate_account() == null) {
+			LocalDate date = LocalDate.now();
+			user.setDate_account(date);
+		}
 		userService.save(user);
 		return "redirect:/login";
 	}
@@ -157,7 +168,7 @@ public class UserController {
 		model.addAttribute("title", title);
 		model.addAttribute("profiles", profileService.findAll());
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
-		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
+		model.addAttribute("menu", session.getAttribute("menu"));
 		model.addAttribute("usr", user);
 		return "addUser";
 	}
@@ -173,7 +184,7 @@ public class UserController {
 		var title = "FindUser";
 		model.addAttribute("title", title);
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
-		model.addAttribute("homeProfile", session.getAttribute("homeProfile"));
+		model.addAttribute("menu", session.getAttribute("menu"));
 		return ("findUser");
 	}
 

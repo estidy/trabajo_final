@@ -1,6 +1,7 @@
 package com.cervelBuenTrato.core.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -17,6 +18,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
@@ -47,6 +50,8 @@ public class Usr implements Serializable {
 	@OneToMany
 	@JoinColumn(name = "id_user")
 	private List<Purchase> purchases;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate date_account;
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

@@ -11,41 +11,33 @@
              <!-- <a href="javascript: history.go(-1)" onClick="javascript :history.back(-1);">Volver</a> -->
              <div class="card">
 	              <div class="card-header text-center">
-		               <h3>LISTADO DE USUARIOS</h3>
+		               <h3>LISTADO DE TIPOS DE CERVEZA</h3>
 	              </div>
 	              <div class="card-body"> 
-	                 <div th:if="${users != null and !users.empty}" class="my-4">
+	                 <div th:if="${types != null and !types.empty}" class="my-4">
 			            <table class="table">
 		                   <thead>
 		                     <tr>
 							      <th scope="col">#</th>
-							      <th scope="col">NOMBRE USUARIO</th>
-							      <th scope="col">ROL/ES</th>
-							      <th scope="col">EMAIL</th>
-							      <th scope="col">TELEFONO</th>
+							      <th scope="col">TIPO</th>
+							      <th scope="col">DESCRIPCION</th>
 							      <th scope="col">EDITAR</th>
 							      <th scope="col">ELIMINAR</th>
 							 </tr>
 		                  </thead>
 		                  <tbody>
-						    <tr th:each="u,iterator : ${users}" >
+						    <tr th:each="t,iterator : ${types}" >
 							      <td scope="row" th:text="${iterator.index+1}"></td>
-								  <td th:text="${u.username}"></td>
-								  <td> 
-								     <div th:each="p : ${u.profiles}"  class="d-flex-column">
-			                             <p th:text="${p.name}" class="mx-auto"></p>
-			                         </div>
-	                              </td>
-								  <td th:text="${u.email}"></td>  
-								  <td th:text="${u.phone}"></td>
-								  <td> <a th:href="@{/users/editUser/} + ${u.id_user}"><button type="button" class="btn btn-warning"><i class="far fa-edit"></i> </button></a> </td>
-								  <td> <a th:href="@{/users/deleteUser(id_user=${u.id_user})}"><button type="button" class="btn btn-warning"><i class="far fa-trash-alt"></i> </button> </a> </td>
+								  <td th:text="${t.type}"></td>
+								  <td th:text="${t.description}"></td>  
+								  <td> <a th:href="@{/typeBeer/editTypeBeer/} + ${t.id_type_beer}"><button type="button" class="btn btn-success"><i class="far fa-edit"></i> </button></a> </td>
+								  <td> <a th:href="@{/typeBeer/deleteTypeBeer(id_type_beer=${t.id_type_beer})}"><button type="button" class="btn btn-success"><i class="far fa-trash-alt"></i> </button> </a> </td>
 							  </tr>  
 		                  </tbody>
 		               </table>
 	                 </div>
-					 <div th:if="${users == null or users.empty}">
-						<p> La Lista de usuarios esta vacia </p>
+					 <div th:if="${types == null or types.empty}">
+						<p> No hay elementos para mostrar </p>
 					 </div>
 	            </div>
             </div>

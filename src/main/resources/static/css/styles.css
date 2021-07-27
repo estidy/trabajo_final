@@ -7,6 +7,10 @@
   font-family: 'whiteStorm';
   src: url('/fonts/WhiteStorm.otf') format('truetype')
 }
+@font-face {
+  font-family: 'pacifico';
+  src: url('/fonts/PacificoRegular.ttf') format('truetype')
+}
 /* HEADER INDEX  */
 .socialMedia a{text-decoration:none;
                color:white;
@@ -71,6 +75,11 @@ a.btn-bg:hover{
 .carousel img{
 	max-height:500px;
 	object-fit: cover;
+}
+.title_menu{
+	font-family: 'Pacifico';
+	font-size: 3rem;
+	color:crimson;
 }
 /* FOOTER INDEX  */
 .footerIndex a{

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http//www.w3.org/1999/xhtml"
+      xmlns:th="http//www.thymeleaf.org"
+      xmlns:sec="http//www.thymeleaf.org/extras/spring-segurity">
+<head th:replace="layout/profileLayout::headProfile"></head>
+<body>
+<header th:replace="layout/profileLayout::headerProfile"></header>
+<section class="py-4 row mx-auto">
+     <div sec:authorize="hasAuthority('ADMIN')" class="container mx-auto">
+             <!-- <a href="javascript: history.go(-1)" onClick="javascript :history.back(-1);">Volver</a> -->
+          <div class="card mx-auto">
+             <div class="card-header text-center">
+		               <h3>DATOS DEL TIPO DE CERVEZA</h3>
+	         </div>
+	         	 <div class="card-body"> 
+					  <form th:action="@{/typeBeer/saveTypeBeer}" method="POST" th:object="${typeBeer}" class="row g-3">
+						 <input type="hidden" name="id_type_beer" th:field="*{id_type_beer}"/>
+						  <div class="col-md-6">
+						    <label for="name" class="form-label">Nombre del Tipo:</label>
+							<input type="text" name="type" th:field="*{type}" class="form-control" required/>
+						  </div>
+						  <div class="col-md-6">
+						    <label for="description" class="form-label">Descripcion:</label>
+						    <textarea name="description" th:field="*{description}" class="form-control" id="description" rows="3"></textarea>
+						  </div>
+						  <div class="col-12 d-md-flex justify-content-around">
+						    <input type=submit name="Guardar" class="btn btn-success" value="Guardar"/>				    
+						     <a href="javascript: history.go(-1)" onClick="javascript :history.back(-1);">Volver</a>
+						     <a th:href="@{/typeBeer/abm_typesBeer}"><button th:text="Volver" type="button" class="btn btn-success"></button></a>
+						  </div>
+						</form>						 
+	              </div>
+	     </div>
+     </div>
+</section>
+<footer th:replace="layout/profileLayout::footerProfile"></footer>
+</body>
+</html>

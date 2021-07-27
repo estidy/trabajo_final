@@ -7,17 +7,16 @@
 <body>
 <header th:replace="layout/profileLayout::headerProfile"></header>
 <section class="py-4 row mx-auto">
-     <div class="col-sm-2  mx-auto">
-         <div sec:authorize="hasAuthority('ADMIN')" th:insert="fragments/menuAdmin.html"> </div>
-     </div>
-     <div sec:authorize="hasAuthority('ADMIN')" class="col-sm-10 mx-auto">
+     <div sec:authorize="hasAuthority('ADMIN')" class="container mx-auto">
              <!-- <a href="javascript: history.go(-1)" onClick="javascript :history.back(-1);">Volver</a> -->
+        
           <div class="card mx-auto">
              <div class="card-header text-center">
 		               <h3>DATOS DEL PRODUCTO</h3>
 	         </div>
 	         	 <div class="card-body"> 
-					  <form th:action="@{/users/saveUser}" method="POST" th:object="${beer}" class="row g-3">
+	         	    <div th:if="${types != null and !types.empty}" class="my-4">
+					  <form th:action="@{/beers/saveProdBeer}" method="POST" th:object="${beer}" class="row g-3">
 						 <input type="hidden" name="id_product" th:field="*{id_product}"/>
 						  <div class="col-md-6">
 						    <label for="name" class="form-label">Nombre del de producto:</label>
@@ -25,15 +24,15 @@
 						  </div>
 						  <div class="col-md-6">
 						    <label for="description" class="form-label">Descripcion:</label>
-							<input type="text" name="description" th:field="*{description}" class="form-control" required/>
+							<textarea name="description" th:field="*{description}" class="form-control" id="description" rows="3"></textarea>
 						  </div>
 						  <div class="col-md-6">
 						    <label for="stock_min" class="form-label">Stock Minimo:</label>
-						    <input type="number" name="stock_min" th:field="*{stock_min}" class="form-control" required/>
+						    <input type="number" name="stock_min" th:field="*{stock_min}" min="0" class="form-control" required/>
 						  </div>
 						  <div class="col-md-6">
 						    <label for="stock_actual" class="form-label">Stock Actual:</label>
-							<input type="number" name="phone" th:field="*{stock_actual}" class="form-control"/>
+							<input type="number" name="stock_actual" th:field="*{stock_actual}" min="0" class="form-control"/>
 						  </div>
 						  <div class="col-md-6">
 						    <label for="expiration" class="form-label">Vencimiento:</label>
@@ -41,24 +40,42 @@
 						  </div>
 						  <div class="col-md-6">
 						    <label for="price" class="form-label">Valor:</label>
-							<span class="input-group-text">$</span>
-						    <input type="text" name="price" th:field="*{price}" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+						    <div class="input-group">
+							  <span class="input-group-text" id="basic-addon1">$</span>
+						      <input type="number" name="price" th:field="*{price}" min="0" class="form-control" step="any" aria-label="Dollar amount (with dot and two decimal places)" aria-describedby="basic-addon1">
+						    </div>
 						  </div>
 						  <div class="col-md-6">
 						    <label for="measure" class="form-label">Medida:</label>
-                            <input type="text" name="measure" th:field="*{measure}" class="form-control" value="Lts" disabled/>
+                            <input type="text" name="measure" th:field="*{measure}" class="form-control" value="LITROS" readonly/>
 						  </div>
 						  <div class="col-md-6">
-                            <label for="margin_gain" class="form-label">Valor:</label>							
-						    <input type="number" name="margin_gain" th:field="*{margin_gain}" class="form-control">
-						    <span class="input-group-text">%</span>
+						    <div class="input-group">
+                               <label for="margin_gain" class="form-label">Margen de ganancia:</label>
+                               <div class="input-group">							
+						          <input type="number" name="margin_gain" th:field="*{margin_gain}" min="0" class="form-control" aria-describedby="basic-addon2">
+						          <span class="input-group-text" id="basic-addon2">%</span>
+						       </div>
+						    </div>
+						  </div>
+						  <div class="col-md-4">
+						    <label for="type_beer" class="form-label">Tipo de Cerveza:</label>
+							<select th:field="*{type_beer}" id="type_beer" name="type_beer"  class="form-select form-select-lg mb-3" required>		    
+								<option th:each="t : ${types}" th:value="${t.id_type_beer}" th:text="${t.type}"> </option>
+							</select>
 						  </div>
 						  <div class="col-12 d-md-flex justify-content-around">
-						    <input type=submit name="Guardar" class="btn btn-warning" value="Guardar"/>				    
+						    <input type=submit name="Guardar" class="btn btn-primary" value="Guardar"/>				    
 						     <a href="javascript: history.go(-1)" onClick="javascript :history.back(-1);">Volver</a>
-						     <a th:href="@{/products/abm_products}"><button th:text="Volver" type="button" class="btn btn-warning"></button></a>
+						     <a th:href="@{/beers/abm_products_beer}"><button th:text="Volver" type="button" class="btn btn-primary"></button></a>
 						  </div>
-						</form>						 
+						</form>	
+					 </div>	
+					 <div th:if="${types == null or types.empty}">
+		                 <p> La Lista de Tipos de cervezas esta vacia</p>
+		                 <p> Debe agregar los tipos para continuar</p>
+		                 <a th:href="@{/beers/abm_products_beers}"><button th:text="Volver" type="button" class="btn btn-primary"></button></a>
+	                 </div>				 
 	              </div>
 	     </div>
      </div>

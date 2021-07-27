@@ -7,29 +7,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@Entity(name = "type_beer")
+@Entity(name = "size")
+public class Size implements Serializable {
 
-public class TypeBeer implements Serializable {
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -5209006211039393023L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_type_beer;
+	private Long id_size;
+	@NotNull
+	private Integer grams;
 	@Column(length = 50)
 	@NotEmpty
-	private String type;
-	@Lob
 	private String description;
 }

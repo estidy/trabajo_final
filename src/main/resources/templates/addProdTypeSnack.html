@@ -1,9 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http//www.w3.org/1999/xhtml"
+      xmlns:th="http//www.thymeleaf.org"
+      xmlns:sec="http//www.thymeleaf.org/extras/spring-segurity">
+<head th:replace="layout/profileLayout::headProfile"></head>
+<body>
+<header th:replace="layout/profileLayout::headerProfile"></header>
+<section class="py-4 row mx-auto">
+     <div sec:authorize="hasAuthority('ADMIN')" class="container mx-auto">
              <!-- <a href="javascript: history.go(-1)" onClick="javascript :history.back(-1);">Volver</a> -->
- <div class="card">
-	              <div class="card-header text-center">
-		               <h3>DATOS DEL PRODUCTO snack</h3>
+        
+          <div class="card mx-auto">
+             <div class="card-header text-center">
+		               <h3>DATOS DEL PRODUCTO</h3>
+	         </div>
+	         	 <div class="card-body"> 
+	         	    <div th:if="${sizes != null and !sizes.empty}" class="my-4">
+					  <form th:action="@{/snacks/saveProdSnack}" method="POST" th:object="${snack}" class="row g-3">
+						 <input type="hidden" name="id_product" th:field="*{id_product}"/>
+						  <div class="col-md-6">
+						    <label for="name" class="form-label">Nombre del de producto:</label>
+							<input type="text" name="name" th:field="*{name}" class="form-control" required/>
+						  </div>
+						  <div class="col-md-6">
+						    <label for="description" class="form-label">Descripcion:</label>
+							<textarea name="description" th:field="*{description}" class="form-control" id="description" rows="3"></textarea>
+						  </div>
+						  <div class="col-md-6">
+						    <label for="stock_min" class="form-label">Stock Minimo:</label>
+						    <input type="number" name="stock_min" th:field="*{stock_min}" min="0" class="form-control" required/>
+						  </div>
+						  <div class="col-md-6">
+						    <label for="stock_actual" class="form-label">Stock Actual:</label>
+							<input type="number" name="stock_actual" th:field="*{stock_actual}" min="0" class="form-control"/>
+						  </div>
+						  <div class="col-md-6">
+						    <label for="expiration" class="form-label">Vencimiento:</label>
+						    <input type="date" name="expiration" th:field="*{expiration}" class="form-control" required/>
+						  </div>
+						  <div class="col-md-6">
+						    <label for="price" class="form-label">Valor:</label>
+						    <div class="input-group">
+							  <span class="input-group-text" id="basic-addon1">$</span>
+						      <input type="number" name="price" th:field="*{price}" min="0" class="form-control" step="any" aria-label="Dollar amount (with dot and two decimal places)" aria-describedby="basic-addon1">
+						    </div>
+						  </div>
+						  <div class="col-md-6">
+						    <label for="measure" class="form-label">Medida:</label>
+                            <input type="text" name="measure" th:field="*{measure}" class="form-control" value="UNIDADES" readonly/>
+						  </div>
+						  <div class="col-md-6">
+						    <div class="input-group">
+                               <label for="margin_gain" class="form-label">Margen de ganancia:</label>
+                               <div class="input-group">							
+						          <input type="number" name="margin_gain" th:field="*{margin_gain}" min="0" class="form-control" aria-describedby="basic-addon2">
+						          <span class="input-group-text" id="basic-addon2">%</span>
+						       </div>
+						    </div>
+						  </div>
+						  <div class="col-md-4">
+						    <label for="size" class="form-label">Gramos:</label>
+							<select th:field="*{size}" id="size" name="size"  class="form-select form-select-lg mb-3" required>		    
+								<option th:each="s : ${sizes}" th:value="${s.id_size}" th:text="${s.grams} + ' - GRS'"> </option>
+							</select>
+						  </div>
+						  <div class="col-12 d-md-flex justify-content-around">
+						    <input type=submit name="Guardar" class="btn btn-primary" value="Guardar"/>				    
+						     <a href="javascript: history.go(-1)" onClick="javascript :history.back(-1);">Volver</a>
+						     <a th:href="@{/snacks/abm_products_snack}"><button th:text="Volver" type="button" class="btn btn-primary"></button></a>
+						  </div>
+						</form>	
+						</div>	
+					 <div th:if="${sizes == null or sizes.empty}">
+		                 <p> La Lista de Tamaños esta vacia</p>
+		                 <p> Debe agregarlos para continuar</p>
+		                 <a th:href="@{/beers/abm_products_beers}"><button th:text="Volver" type="button" class="btn btn-primary"></button></a>
+	                 </div>	
+					 </div>					 
 	              </div>
-	              <div class="card-body"> 
-					  snack
-	              </div>
-</div>
+	     </div>
+</section>
+<footer th:replace="layout/profileLayout::footerProfile"></footer>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<div class="row">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <div class="container-fluid">
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+		      <a class="navbar-brand" th:href="@{/users/homeADMIN}"><i class="fas fa-home fa-2x"></i></a>
+		      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+				<li class="nav-item dropdown">
+		            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown1" data-bs-toggle="dropdown"  role="button" aria-expanded="false"> 
+		                 PRODUCTOS
+		            </a>
+		            <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+		                <li class="dropdown-submenu dropend">
+		                    <a href="#" class="nav-link  dropdown-toggle" data-bs-toggle="dropdown"  role="button" aria-expanded="false">
+		                       CERVEZA
+		                    </a>
+		                    <ul class="dropdown-menu">
+					            <li><a class="dropdown-item" th:href="@{/beers/addProdTypeBeer}">Agregar</a></li>
+					            <li><a class="dropdown-item" th:href="@{/beers/findProdBeer}">Buscar</a></li>
+					            <li><a class="dropdown-item" th:href="@{/beers/abm_products_beer}">Listado</a></li>
+					            <li><hr class="dropdown-divider"></li>
+					            <li><a class="dropdown-item" th:href="@{/beers/abm_typesBeer}">ABM - TIPO CERVEZA</a></li>
+		                    </ul>
+		                </li>
+		                <li class="dropdown-submenu dropend">
+		                    <a href="#" class="nav-link  dropdown-toggle" data-bs-toggle="dropdown"  role="button" aria-expanded="false">
+		                       SNACK
+		                    </a>
+		                    <ul class="dropdown-menu">
+					            <li><a class="dropdown-item" th:href="@{/snacks/addProdTypeSnack}">Agregar</a></li>
+					            <li><a class="dropdown-item" th:href="@{/snacks/findProdSnack}">Buscar</a></li>
+					            <li><a class="dropdown-item" th:href="@{/snacks/abm_products_snack}">Listado</a></li>
+					            <li><hr class="dropdown-divider"></li>
+					            <li><a class="dropdown-item" th:href="@{/beers/abm_typesBeer}">ABM - TAMA&Ntilde;O</a></li>
+		                    </ul>
+		                </li>
+		            </ul>
+		        </li>
+		        <li class="nav-item dropdown">
+		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		            USUARIOS
+		          </a>
+		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		            <li><a class="dropdown-item" th:href="@{/users/addUser}">Agregar</a></li>
+		            <li><a class="dropdown-item" th:href="@{/users/findUser}">Buscar</a></li>
+		            <li><a class="dropdown-item"  th:href="@{/users/abm_users}">Listado</a></li>
+		          </ul>
+		        </li>
+		        <li class="nav-item dropdown">
+		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		            PROMOCIONES
+		          </a>
+		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		            <li><a class="dropdown-item" href="#">Agregar</a></li>
+		            <li><a class="dropdown-item" href="#">Buscar</a></li>
+		            <li><a class="dropdown-item" href="#">Listado</a></li>
+		            <li><a class="dropdown-item" href="#">Promociones del D&iacute;a</a></li>
+		          </ul>
+		        </li>
+		        <li class="nav-item dropdown">
+		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		            PEDIDOS
+		          </a>
+		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		            <li><a class="dropdown-item" href="#">Agregar</a></li>
+		            <li><a class="dropdown-item" href="#">Buscar</a></li>
+		            <li><a class="dropdown-item" href="#">Listado</a></li>
+		            <li><a class="dropdown-item" href="#">Pedidos del D&iacute;a</a></li>
+		          </ul>
+		        </li>
+		        <li class="nav-item dropdown">
+		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		            REPORTES
+		          </a>
+		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		            <li><a class="dropdown-item" href="#">Productos M&aacute;s Vendidos</a></li>
+		            <li><a class="dropdown-item" href="#">medio de Pago m&aacute;s Usado</a></li>
+		            <li><a class="dropdown-item" href="#">Destinos de Delivery</a></li>
+		            <li><a class="dropdown-item" href="#">Usuarios Nuevos</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		     <div sec:authorize="isAuthenticated()" th:insert="fragments/welcomeUser.html" class="d-sm-flex align-items-center justify-content-end"></div> 		      
+		    </div>
+		  </div>
+</nav>
+</div>
+
+<script th:inline="javascript">
+$(document).ready(function(){
+  $('.dropdown a.nav-link').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
