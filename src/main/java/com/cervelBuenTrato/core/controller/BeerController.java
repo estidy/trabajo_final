@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cervelBuenTrato.core.model.Beer;
-import com.cervelBuenTrato.core.services.ProductService;
+import com.cervelBuenTrato.core.services.BeerService;
 import com.cervelBuenTrato.core.services.TypeBeerService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 public class BeerController {
 
 	@Autowired
-	private ProductService productService;
+	private BeerService beerService;
 
 	@Autowired
 	private TypeBeerService typeBeerService;
@@ -34,7 +34,7 @@ public class BeerController {
 	public String abm_products_beer(Model model, HttpSession session) {
 		var title = "ABM-Product_beer";
 		model.addAttribute("title", title);
-		model.addAttribute("products", productService.findAll());
+		model.addAttribute("products", beerService.findAll());
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
 		model.addAttribute("menu", session.getAttribute("menu"));
 		return "abm_products_beers";
@@ -56,14 +56,14 @@ public class BeerController {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate localDate = LocalDate.parse(date, formatter);
 		beer.setExpiration(localDate);
-		productService.save(beer);
+		beerService.save(beer);
 		return "redirect:/beers/abm_products_beers";
 	}
 
-	@GetMapping("/editProd/{id_product}")
+	@GetMapping("/editProdBeer/{id_product}")
 	public String editProdBeer(Beer beer, Model model, HttpSession session) {
-		var title = "EditUser";
-		beer = (Beer) productService.findById(beer).get();
+		var title = "EditBeer";
+		beer = beerService.findById(beer).get();
 		model.addAttribute("types", typeBeerService.findAll());
 		model.addAttribute("title", title);
 		model.addAttribute("beer", beer);
@@ -74,7 +74,7 @@ public class BeerController {
 
 	@GetMapping("/deleteProdBeer")
 	public String deleteProdBeer(Beer beer) {
-		productService.deleteById(beer);
+		beerService.deleteById(beer);
 		return "redirect:/beer/abm_products_beers";
 	}
 

@@ -3,10 +3,9 @@ package com.cervelBuenTrato.core.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.cervelBuenTrato.core.model.Product;
+import com.cervelBuenTrato.core.model.Beer;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface BeerRepository extends JpaRepository<Beer, Long> {
 
-	/* Iterable<Product> findAllTypeBeer(); */
 }

@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.cervelBuenTrato.core.model.Product;
 import com.cervelBuenTrato.core.model.Snack;
-import com.cervelBuenTrato.core.services.ProductService;
 import com.cervelBuenTrato.core.services.SizeService;
+import com.cervelBuenTrato.core.services.SnackService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 public class SnackController {
 
 	@Autowired
-	private ProductService productService;
+	private SnackService snackService;
 
 	@Autowired
 	private SizeService sizeService;
@@ -36,7 +35,8 @@ public class SnackController {
 	public String abm_products_snack(Model model, HttpSession session) {
 		var title = "ABM-Product_snack";
 		model.addAttribute("title", title);
-		model.addAttribute("products", productService.findAll());
+		model.addAttribute("products", snackService.findAll());
+		model.addAttribute("profile", session.getAttribute("actualProfile"));
 		model.addAttribute("menu", session.getAttribute("menu"));
 		return "abm_products_snacks";
 	}
@@ -57,14 +57,14 @@ public class SnackController {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate localDate = LocalDate.parse(date, formatter);
 		snack.setExpiration(localDate);
-		productService.save(snack);
+		snackService.save(snack);
 		return "redirect:/snacks/abm_products_snacks";
 	}
 
 	@GetMapping("/editProdSnack/{id_product}")
-	public String editProdSnack(Product snack, Model model, HttpSession session) {
-		var title = "EditUser";
-		snack = productService.findById(snack).get();
+	public String editProdSnack(Snack snack, Model model, HttpSession session) {
+		var title = "EditProdSnack";
+		snack = snackService.findById(snack).get();
 		model.addAttribute("sizes", sizeService.findAll());
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
 		model.addAttribute("menu", session.getAttribute("menu"));
@@ -75,7 +75,7 @@ public class SnackController {
 
 	@GetMapping("/deleteProdSnack")
 	public String deleteProdSnack(Snack snack) {
-		productService.deleteById(snack);
+		snackService.deleteById(snack);
 		return "redirect:/snacks/abm_products_snacks";
 	}
 

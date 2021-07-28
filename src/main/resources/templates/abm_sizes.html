@@ -13,6 +13,7 @@
 	              <div class="card-header text-center">
 		               <h3>LISTADO</h3>
 	              </div>
+	              <a th:href="@{/sizes/addSize}"><button type="button" class="btn btn-danger"><i class="fas fa-plus-circle"> AGREGAR </i></button> </a>
 	              <div class="card-body"> 
 	                 <div th:if="${sizes != null and !sizes.empty}" class="my-4">
 			            <table class="table">

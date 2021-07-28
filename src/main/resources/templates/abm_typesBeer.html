@@ -13,6 +13,7 @@
 	              <div class="card-header text-center">
 		               <h3>LISTADO DE TIPOS DE CERVEZA</h3>
 	              </div>
+	              <a th:href="@{/typeBeer/addTypeBeer}"><button type="button" class="btn btn-success"><i class="fas fa-plus-circle"> AGREGAR </i></button> </a>
 	              <div class="card-body"> 
 	                 <div th:if="${types != null and !types.empty}" class="my-4">
 			            <table class="table">

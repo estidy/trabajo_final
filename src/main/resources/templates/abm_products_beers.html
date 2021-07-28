@@ -22,7 +22,6 @@
 								      <th scope="col">VENCIMIENTO</th>
 								      <th scope="col">MEDIDA</th>
 								      <th scope="col">MARGEN DE GANANCIA %</th>
-								      <th scope="col">TIPO</th>
 								      <th scope="col">EDITAR</th>
 								      <th scope="col">ELIMINAR</th>
 							        </tr>
@@ -37,9 +36,8 @@
 									    <td th:text="${p.expiration}"></td>
 									    <td th:text="${p.measure}"></td>  
 									    <td th:text="${p.margin_gain}"></td>
-						                <td th:text="${p.type_beer.type}"></td>
-									    <td> <a th:href="@{/beers/editProd/} + ${p.id_product}"><button type="button" class="btn btn-primary"><i class="far fa-edit"></i> </button></a> </td>
-									    <td> <a th:href="@{/beers/deleteProd?id_product=} + ${p.id_product}"><button type="button" class="btn btn-primary"><i class="far fa-trash-alt"></i> </button> </a> </td>
+									    <td> <a th:href="@{/beers/editProdBeer/} + ${p.id_product}"><button type="button" class="btn btn-primary"><i class="far fa-edit"></i> </button></a> </td>
+									    <td> <a th:href="@{/beers/deleteProdBeer?id_product=} + ${p.id_product}"><button type="button" class="btn btn-primary"><i class="far fa-trash-alt"></i> </button> </a> </td>
 									  </tr>  
 		 					 </tbody>
 		                  </table>
