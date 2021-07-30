@@ -13,6 +13,7 @@
 	              <div class="card-header text-center">
 		               <h3>LISTADO DE USUARIOS</h3>
 	              </div>
+	              <a th:href="@{/users/addUser}"><button type="button" class="btn btn-warning"><i class="fas fa-plus-circle"> AGREGAR </i></button> </a>
 	              <div class="card-body"> 
 	                 <div th:if="${users != null and !users.empty}" class="my-4">
 			            <table class="table">
@@ -23,6 +24,7 @@
 							      <th scope="col">ROL/ES</th>
 							      <th scope="col">EMAIL</th>
 							      <th scope="col">TELEFONO</th>
+							      <th scope="col">FECHA CUENTA</th>
 							      <th scope="col">EDITAR</th>
 							      <th scope="col">ELIMINAR</th>
 							 </tr>
@@ -38,6 +40,7 @@
 	                              </td>
 								  <td th:text="${u.email}"></td>  
 								  <td th:text="${u.phone}"></td>
+								  <td th:text="${u.date_account}"></td>
 								  <td> <a th:href="@{/users/editUser/} + ${u.id_user}"><button type="button" class="btn btn-warning"><i class="far fa-edit"></i> </button></a> </td>
 								  <td> <a th:href="@{/users/deleteUser(id_user=${u.id_user})}"><button type="button" class="btn btn-warning"><i class="far fa-trash-alt"></i> </button> </a> </td>
 							  </tr>  

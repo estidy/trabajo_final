@@ -76,4 +76,10 @@ public class UserService implements UserDetailsService {
 	public Usr findByUsername(String username) {
 		return (userRepository.findByUsername(username));
 	}
+
+	@Transactional(readOnly = true)
+	public Iterable<Usr> newUsersRegister() {
+		return userRepository.newUsersRegister();
+	}
+
 }

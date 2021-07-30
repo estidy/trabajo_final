@@ -7,5 +7,4 @@ import com.cervelBuenTrato.core.model.Beer;
 
 @Repository
 public interface BeerRepository extends JpaRepository<Beer, Long> {
-
 }

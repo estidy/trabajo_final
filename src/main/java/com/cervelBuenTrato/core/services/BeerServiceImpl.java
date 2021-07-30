@@ -20,6 +20,11 @@ public class BeerServiceImpl implements BeerService {
 	@Autowired
 	private BeerRepository beerRepository;
 
+	/*
+	 * return beerRepository.nextProductsToExpire().stream().map(prod ->
+	 * modelMapper.map(prod, ProductResume.class)) .collect(Collectors.toList());
+	 */
+
 	@Override
 	@Transactional(readOnly = true)
 	public Iterable<Beer> findAll() {

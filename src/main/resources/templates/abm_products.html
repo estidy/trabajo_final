@@ -6,10 +6,10 @@
 <section class="py-4 row mx-auto">
      <div sec:authorize="hasAuthority('ADMIN')" class="container mx-auto">
           <div class="card">
+                  <a href="javascript: history.go(-1)" onClick="javascript :history.back(-1);">Volver</a>
 	              <div class="card-header text-center">
-		               <h3>LISTADO DE PRODUCTOS</h3>
-	              </div>
-	              <a th:href="@{/snacks/addProdTypeSnack}"><button type="button" class="btn btn-primary"><i class="fas fa-plus-circle"> AGREGAR </i></button> </a>
+		               <h3 th:text="${headerTitle}"></h3>
+	              </div>	              
 	              <div class="card-body"> 	
 	                   <div th:if="${products != null and !products.empty}" class="my-4">
 			               <table class="table">
@@ -21,24 +21,20 @@
 								      <th scope="col">STOCK_ACTUAL</th>
 								      <th scope="col">PRECIO</th>
 								      <th scope="col">VENCIMIENTO</th>
-								      <th scope="col">MEDIDA</th>
 								      <th scope="col">MARGEN DE GANANCIA %</th>
-								      <th scope="col">EDITAR</th>
-								      <th scope="col">ELIMINAR</th>
+								      <th scope="col">ACCIONES</th>
 							        </tr>
 							  </thead>
 		                      <tbody>
 								    <tr th:each="p,iterator : ${products}" >
-								        <td scope="row" th:text="${iterator.index+1}"></td>
+								        <td scope="row" th:text="${iterator.index+1}"></td>	        
 									    <td th:text="${p.name}"></td>
 									    <td th:text="${p.stock_min}"></td>  
 									    <td th:text="${p.stock_actual}"></td>
 									    <td th:text="${p.price}"></td>
-									    <td th:text="${p.expiration}"></td>
-									    <td th:text="${p.measure}"></td>  
+									    <td th:text="${p.expiration}"></td>									     
 									    <td th:text="${p.margin_gain}"></td>
-									    <td> <a th:href="@{/snacks/editProdSnack/} + ${p.id_product}"><button type="button" class="btn btn-primary"><i class="far fa-edit"></i> </button></a> </td>
-									    <td> <a th:href="@{/snacks/deleteProdSnack?id_product=} + ${p.id_product}"><button type="button" class="btn btn-primary"><i class="far fa-trash-alt"></i> </button> </a> </td>
+									    <td> <a th:href="@{#} + ${p.id_product}"><button type="button" class="btn btn-primary" th:text="VER"><i class="far fa-trash-alt"></i> </button> </a> </td>
 									  </tr>  
 		 					 </tbody>
 		                  </table>

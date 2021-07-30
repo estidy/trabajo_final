@@ -77,5 +77,4 @@ public class BeerController {
 		beerService.deleteById(beer);
 		return "redirect:/beer/abm_products_beers";
 	}
-
 }

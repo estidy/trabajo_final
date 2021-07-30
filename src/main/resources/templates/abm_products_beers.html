@@ -7,8 +7,9 @@
      <div sec:authorize="hasAuthority('ADMIN')" class="containermx-auto">
           <div class="card">
 	              <div class="card-header text-center">
-		               <h3>LISTADO DE USUARIOS</h3>
+		               <h3>LISTADO</h3>
 	              </div>
+	              <a th:href="@{/beers/addProdTypeBeer}"><button type="button" class="btn btn-primary"><i class="fas fa-plus-circle"> AGREGAR </i></button> </a>
 	              <div class="card-body"> 	
 	                   <div th:if="${products != null and !products.empty}" class="my-4">
 			               <table class="table">

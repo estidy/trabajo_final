@@ -97,10 +97,20 @@ public class UserController {
 	}
 
 	@GetMapping("/abm_users")
-	public String index(Model model, HttpSession session) {
+	public String abm_users(Model model, HttpSession session) {
 		var title = "ABM-Users";
 		model.addAttribute("title", title);
 		model.addAttribute("users", userService.findAll());
+		model.addAttribute("profile", session.getAttribute("actualProfile"));
+		model.addAttribute("menu", session.getAttribute("menu"));
+		return "abm_users";
+	}
+
+	@GetMapping("/newUsersRegister")
+	public String newUsersRegister(Model model, HttpSession session) {
+		var title = "ABM-Users";
+		model.addAttribute("title", title);
+		model.addAttribute("users", userService.newUsersRegister());
 		model.addAttribute("profile", session.getAttribute("actualProfile"));
 		model.addAttribute("menu", session.getAttribute("menu"));
 		return "abm_users";
