@@ -1,4 +1,4 @@
-package com.cervelBuenTrato.core.extras;
+package com.cervelBuenTrato.core.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class ProductResume implements Serializable {
+public class ProductDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Long id_product;

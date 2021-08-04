@@ -26,6 +26,8 @@ public abstract class Product implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_product;
+	@Column(insertable = false, updatable = false)
+	private String dtype;
 	@Column(length = 50)
 	@NotEmpty
 	private String name;

@@ -16,6 +16,7 @@
 							   <thead>
 								    <tr>
 								      <th scope="col">#</th>
+								      <th scope="col">TIPO</th>
 								      <th scope="col">NOMBRE</th>
 								      <th scope="col">STOCK_MIN</th>
 								      <th scope="col">STOCK_ACTUAL</th>
@@ -28,6 +29,7 @@
 		                      <tbody>
 								    <tr th:each="p,iterator : ${products}" >
 								        <td scope="row" th:text="${iterator.index+1}"></td>	        
+									    <td th:text="${p.dtype}"></td>
 									    <td th:text="${p.name}"></td>
 									    <td th:text="${p.stock_min}"></td>  
 									    <td th:text="${p.stock_actual}"></td>
